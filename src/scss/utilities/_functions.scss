@@ -32,24 +32,3 @@
 .p-relative {
   position: relative;
 }
-.column-phishing-simulations {
-  border-radius: 3rem;
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: $weight-bold;
-  height: 2.8rem;
-  letter-spacing: .4rem;
-  line-height: 2.8rem;
-  margin: 0;
-  text-align: center;
-  width: 11rem;
-  &.green {
-    background-color: #53e298;
-  }
-  &.red {
-    background-color: #ff7a6a;
-  }
-  &.gray {
-    background-color: #ccc;
-  }
-}

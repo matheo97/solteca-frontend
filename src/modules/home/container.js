@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
-import { loadGames } from "../../actions";
+import { loadTickets } from "../../actions";
 import { connect } from "react-redux";
 import SectionOne from "./sectionOne";
 
 class Home extends Component {
   state = {};
-
+  componentDidMount () {
+    this.props.loadTickets();
+  }
   render() {
     return (
       <div>
@@ -17,13 +19,13 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  games: state.home.games
+  tickets: state.tickets.tickets,
 });
 
 const mapDispatchToProps = dispatch => 
   bindActionCreators(
    {
-     loadGames,
+    loadTickets,
    },
    dispatch,
   );

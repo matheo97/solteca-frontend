@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import home from './home';
+import tickets from './tickets';
 
 const reducersMappingObject = {
-  home,
+  tickets,
 };
 
 const allReducers = combineReducers(reducersMappingObject);

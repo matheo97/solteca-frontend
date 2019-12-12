@@ -1,1 +1,1 @@
-export { default as loadTickets } from './home/loadTickets';
+export { default as loadTickets } from './tickets/loadTickets';
