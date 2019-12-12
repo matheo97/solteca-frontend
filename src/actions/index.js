@@ -1,0 +1,1 @@
+export { default as loadTickets } from './home/loadTickets';

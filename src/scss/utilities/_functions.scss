@@ -1,0 +1,55 @@
+@import './variables';
+.d-flex {
+  display: flex;
+}
+.h-center {
+  justify-content: center;
+}
+.h-space-between {
+  justify-content: space-between;
+}
+.h-space-around {
+  justify-content: space-around;
+}
+.h-end {
+  justify-content: flex-end;
+}
+.v-center {
+  align-items: center;
+}
+.hidden {
+  visibility: hidden;
+}
+.f-bold {
+  font-weight: 600;
+}
+.blue-text {
+  color: $blue;
+}
+.f-column {
+  flex-direction: column;
+}
+.p-relative {
+  position: relative;
+}
+.column-phishing-simulations {
+  border-radius: 3rem;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: $weight-bold;
+  height: 2.8rem;
+  letter-spacing: .4rem;
+  line-height: 2.8rem;
+  margin: 0;
+  text-align: center;
+  width: 11rem;
+  &.green {
+    background-color: #53e298;
+  }
+  &.red {
+    background-color: #ff7a6a;
+  }
+  &.gray {
+    background-color: #ccc;
+  }
+}

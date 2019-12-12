@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  outline: none;
+}
+html {
+  font-family: Montserrat;
+  /* Defines 1rem to 10px */
+  font-size: 62.5%;
+}
+body {
+  font-family: Montserrat;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #fff;
+  box-sizing: border-box;
+  color: black;
+}
+p { /* Overwrites andt css */
+  margin-bottom: 0;
+}
+
+// Remove Chrome autocomplete style
+input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  }
