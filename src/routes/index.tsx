@@ -1,13 +1,13 @@
 import React from 'react';
-/* import AuthRoute from './authRoute'; */
 import { Switch, Route, Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { Modal } from 'antd';
+import Parking from '../types';
 
-/* import App from '../modules/app'; */
+import App from '../modules/app';
 import * as modules from '../modules';
 
-let window;
+declare let window: Parking.CustomWindow;
 
 const history = createBrowserHistory({
   getUserConfirmation(message, cb) {
@@ -36,11 +36,13 @@ history.listen((location) => {
 
 const GamingRouter = () => (
   <Router history={history}>
-    {/* <App history={history}> */}
-    <Switch>
-      <Route path='/' component={modules.Home} />
-    </Switch>
-{/*     </App> */}
+    {/* 
+  //@ts-ignore */}
+    <App history={history}>
+      <Switch>
+        <Route path='/' component={modules.VehicleGettingIn} />
+      </Switch>
+    </App>
   </Router>
 );
 
