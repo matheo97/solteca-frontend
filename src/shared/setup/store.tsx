@@ -12,6 +12,5 @@ if (process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION_C
   composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 }
 const composed = composeEnhancers(applyMiddleware(thunk));
-{/* 
-  //@ts-ignore */}
+
 export default createStore(rootReducer, {}, composed);

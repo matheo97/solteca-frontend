@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import { AnyAction } from 'redux';
 import Parking from 'types';
 
 interface Props {
   activeTickets: Parking.Ticket[];
   oldTickets: Parking.Ticket[];
-  loadTickets(): void;
 } 
 
 interface State {
@@ -18,9 +18,6 @@ class VehicleGettingIn extends Component<Props, State> {
     this.state = {
       testingString: 'Example',
     }
-  }
-  componentDidMount () {
-    // this.props.loadTickets();
   }
   render() {
     return (

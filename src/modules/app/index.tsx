@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RouteComponentProps } from '@reach/router';
 // import { Loading } from '../../components';
+import { loadTickets } from '../../actions/index';
 import Parking from 'types';
 
 interface Props extends RouteComponentProps {
-  // bootstrapping: boolean;
-  // confirmExit: boolean;
-  // unlockForm(): void;
+  history: any;
+  children: any;
+  loadTickets(): void;
 }
 
 interface State {
@@ -17,7 +18,6 @@ interface State {
 class App extends Component<Props, State> {
   // private unblocker: any;
   // private unlisten: any;
-
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -35,6 +35,7 @@ class App extends Component<Props, State> {
   }
 
   public componentDidMount() {
+    this.props.loadTickets();
     // sdk.onAuthStateChanged(async () => {
     //   if (!this.props.signingUp) {
     //     
@@ -70,7 +71,7 @@ const mapStateToProps = (_state: Parking.FullState) => ({
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
-      // unlockForm,
+      loadTickets,
     },
     dispatch,
   );

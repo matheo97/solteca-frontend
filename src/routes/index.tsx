@@ -36,8 +36,6 @@ history.listen((location) => {
 
 const GamingRouter = () => (
   <Router history={history}>
-    {/* 
-  //@ts-ignore */}
     <App history={history}>
       <Switch>
         <Route path='/' component={modules.VehicleGettingIn} />

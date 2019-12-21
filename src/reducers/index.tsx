@@ -4,7 +4,6 @@ import Parking from 'types';
 
 const reducersMappingObject: Parking.AllReducersTypes = {
   tickets,
-  prices: undefined,
 };
 
 const allReducers = combineReducers(reducersMappingObject);

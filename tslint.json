@@ -2,6 +2,7 @@
   "extends": ["tslint:all", "tslint-config-prettier", "tslint-plugin-prettier"],
   "rules": {
     "rootDir": "./src",
+    // Formatting rules
     "prettier": {
       "options": {
         "printWidth": 100,
@@ -11,6 +12,8 @@
         "jsxSingleQuote": true
       }
     },
+
+    // Don't want these
     "cyclomatic-complexity": false,
     "increment-decrement": false,
     "newline-before-return": false,
@@ -19,6 +22,8 @@
     "no-unused-variable": false,
     "typedef": false,
     "unnecessary-else": false,
+
+    // TODO: Enable stricter options for these
     "comment-format": {
       "options": ["check-space"]
     },
@@ -26,6 +31,8 @@
     "only-arrow-functions": {
       "options": ["allow-declarations", "allow-named-functions"]
     },
+
+    // TODO: Enable these
     "completed-docs": false,
     "no-any": false,
     "no-magic-numbers": false,
@@ -41,6 +48,8 @@
     "triple-equals": {
       "options": ["allow-undefined-check"]
     },
+
+    // Misc
     "ban": {
       "options": [["describe", "only"], ["it", "only"]]
     },
@@ -63,6 +72,8 @@
       ]
     },
     "linebreak-style": false,
+
+    // CUSTOM PALADIN RULES
     "object-literal-sort-keys": false,
     "file-name-casing": [true, "camel-case"],
     "no-reference": false,
@@ -70,7 +81,7 @@
     "no-default-export": false,
     "no-default-import": false,
     "no-import-side-effect": [true, {"ignore-module": "(\\.html|\\.css|\\.scss)$"}],
-    "no-submodule-imports": [true, "antd/lib/form", "antd/dist/antd.css"],
+    "no-submodule-imports": [true, "antd/lib/form", "@paladincyber/paladin-design/dist/index", "antd/dist/antd.css"],
     "no-var-requires": false,
     "match-default-export-name": false,
     "switch-final-break": false,

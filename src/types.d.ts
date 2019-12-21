@@ -63,9 +63,6 @@ declare namespace Parking {
     revenue: number;
     slots: SlotObject;
   }
-  export interface PriceObject {
-    [key: string]: Price;
-  }
   export interface SlotObject {
     [key: string]: Slot;
   }
@@ -74,8 +71,7 @@ declare namespace Parking {
     prices: PricesState;
   }
   export interface EmptyState {
-    tickets: object;
-    prices: object;
+    tickets: unknown;
   }
   export interface Action {
     type: string;
@@ -83,14 +79,13 @@ declare namespace Parking {
   }
   export interface AllReducersTypes {
     tickets: TicketsState | undefined | Reducer<unknown, any>;
-    prices: PricesState | undefined | Reducer<unknown, any>;
   }
   export interface TicketsState {
     activeTickets: Ticket[];
     oldTickets: Ticket[];
   }
   export interface PricesState {
-    prices: PriceObject;
+    prices: Price[];
   }
 }
 

@@ -1,9 +1,109 @@
 import path from 'path';
+import InterpolateHtmlPlugin from 'interpolate-html-plugin';
+import CspHtmlWebpackPlugin from 'csp-html-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+let cspPolicy ={
+  'base-uri': "'self'",
+  'script-src': ["'self'", "'unsafe-eval'", "'strict-dynamic'", "https://*.google.com"], //  Safari needs https://*.google.com explicit
+  'style-src': ["'self'", "'unsafe-inline'", "https://*.googleapis.com"],
+  'default-src': "'none'",
+  'img-src': ["'self'", "https:"],
+  'frame-src' : [
+    "'self'", 
+    "https://*.typeform.com", 
+    "https://*.stripe.com", 
+    "https://*.googleapis.com",
+    "https://*.google.com"
+  ],
+  'connect-src': ["'self'", "https:", "wss:"],
+  'media-src': ["'self'", "https:"],
+  'form-action': "'self'",
+  'font-src': 'https:',
+  "upgrade-insecure-requests" : ""
+};
 
 module.exports = {
-  entry: './App.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'app.bundle.js'
+  mode: 'development',
+  entry: {
+    main: [
+      'core-js/stable',
+      '@babel/polyfill',
+      path.join(__dirname, 'src', 'index.tsx')
+    ]
   },
-  module: { rules: [ { test: /\.js$/, exclude: /(node_modules|bower_components)/, use: { loader: 'babel-loader', options: { presets: ['env', 'react'] } } } ] } };
+  output: {
+    path: path.join(__dirname, 'build'),
+    filename: 'index.bundle.js',
+    publicPath: '/',
+  },
+  node: {
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    child_process: 'empty',
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx', 'json', '.tsx', '.scss'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'src'),
+    hot: true,
+    historyApiFallback: true,
+    port: 3010,
+    headers: {
+      'X-Frame-Options': 'deny'
+    }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'public', 'index.html'),
+      favicon: 'src/images/favicon.ico',
+      cspPlugin: {
+        enabled: true,
+        policy: cspPolicy,
+        hashingMethod: 'sha256',
+        hashEnabled: {
+          'script-src': true,
+          'style-src': false,
+        },
+        nonceEnabled: {
+          'script-src': true,
+          'style-src': false,
+        },
+      },
+    }),
+    new CspHtmlWebpackPlugin(
+      cspPolicy,
+      {
+        enabled: true,
+        hashingMethod: 'sha256',
+        hashEnabled: {
+          'script-src': true,
+          'style-src': false,
+        },
+        nonceEnabled: {
+          'script-src': true,
+          'style-src': false,
+        },
+      })
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.(tsx)$/,
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, 'src'),
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.(css|scss)$/,
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, 'src'),
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
+};
