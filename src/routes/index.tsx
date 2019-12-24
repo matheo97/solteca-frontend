@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 import { Modal } from 'antd';
 import Parking from '../types';
 
-import App from '../modules/app';
+import App from '../modules/app/container';
 import * as modules from '../modules';
 
 declare let window: Parking.CustomWindow;

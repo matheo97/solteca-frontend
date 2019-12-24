@@ -16,10 +16,10 @@ let cspPolicy ={
     "https://*.googleapis.com",
     "https://*.google.com"
   ],
-  'connect-src': ["'self'", "https:", "wss:"],
-  'media-src': ["'self'", "https:"],
+  'connect-src': ["'self'", "http:", "wss:"],
+  'media-src': ["'self'", "http:"],
   'form-action': "'self'",
-  'font-src': 'https:',
+  'font-src': 'http:',
   "upgrade-insecure-requests" : ""
 };
 
@@ -103,6 +103,11 @@ module.exports = {
         exclude: /node_modules/,
         include: path.resolve(__dirname, 'src'),
         use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        include: path.resolve(__dirname, 'src/images'),
+        loader: "file-loader?name=assets/[name].[ext]"
       },
     ],
   },
