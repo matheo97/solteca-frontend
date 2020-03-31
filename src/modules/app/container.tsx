@@ -16,8 +16,6 @@ interface State {
   example: string;
 }
 class App extends Component<Props, State> {
-  // private unblocker: any;
-  // private unlisten: any;
   constructor(props: Props) {
     super(props);
     this.state = {

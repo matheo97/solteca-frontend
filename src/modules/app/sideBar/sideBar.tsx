@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import items from './itemsSideBar';
-import logo from '../../../images/parking/p-logo.svg';
+import { RouteComponentProps , withRouter } from 'react-router-dom';
 
 import './sideBar.scss';
 
@@ -8,14 +8,14 @@ interface State {
   activeTab: string;
 }
 
-interface Props {
+interface Props extends RouteComponentProps{
   example: string;
 }
 
 interface Item {
   label: string;
-  iconOn: string;
-  iconOff: string;
+  // iconOn: string;
+  // iconOff: string;
   key: string;
 }
 
@@ -31,7 +31,7 @@ class SideBar extends Component<Props, State> {
     return (
       <div className='side-bar-container'>
         <div className='side-bar-header'>
-          <img src={logo} alt=""/>
+          {/* <img src={logo} alt=""/> */}
         </div>
         {
           items.map(
@@ -39,13 +39,13 @@ class SideBar extends Component<Props, State> {
               <div>
                 <button
                   className='wrapper-button'
-                  onClick={() => console.log('Clicked!!')}
+                  onClick={() => this.handleOnClick(item.key)}
                 >
                   <div className={`selector ${this.state.activeTab === item.label ? 'active' : ''}`}></div>
                   <div className='item-container'>
                     <div className='icon'>
                       <img 
-                        src={this.state.activeTab === item.label ? item.iconOn : item.iconOff} 
+                        // src={this.state.activeTab === item.label ? item.iconOn : item.iconOff} 
                         alt=""
                       />
                     </div>
@@ -59,6 +59,11 @@ class SideBar extends Component<Props, State> {
       </div>
     );
   }
+
+  private handleOnClick = (nextRoute: string) => {
+    this.props.history.push(`/${nextRoute}`)
+  }
+
 }
 
-export default SideBar;
+export default withRouter (SideBar);
