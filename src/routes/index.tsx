@@ -38,7 +38,9 @@ const GamingRouter = () => (
   <Router history={history}>
     <App history={history}>
       <Switch>
-        <Route path='/' component={modules.VehicleGettingIn} />
+        <Route path='/getting-in' component={modules.VehicleGettingIn} />
+        <Route path='/getting-out' component={modules.VehicleGettingOut} />
+        <Route path='/tickets' component={modules.Tickets} />
       </Switch>
     </App>
   </Router>

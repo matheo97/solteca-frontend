@@ -10,19 +10,19 @@ const items = [
     label: 'getting in',
     iconOn: gettingInIconOn,
     iconOff: gettingInIconOff,
-    key: 'admin/dashboard',
+    key: 'getting-in',
   },
   {
     label: 'getting out',
     iconOn: gettingOutIconOn,
     iconOff: gettingOutIconOff,
-    key: 'parking/protections',
+    key: 'getting-out',
   },
   {
     label: 'tickets',
     iconOn: ticketIconOn,
     iconOff: ticketIconOff,
-    key: 'parking/tickets',
+    key: 'tickets',
   },
 ];
 

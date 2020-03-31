@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import items from './itemsSideBar';
 import logo from '../../../images/parking/p-logo.svg';
+import { RouteComponentProps , withRouter } from 'react-router-dom';
 
 import './sideBar.scss';
 
@@ -8,7 +9,7 @@ interface State {
   activeTab: string;
 }
 
-interface Props {
+interface Props extends RouteComponentProps{
   example: string;
 }
 
@@ -39,7 +40,7 @@ class SideBar extends Component<Props, State> {
               <div>
                 <button
                   className='wrapper-button'
-                  onClick={() => console.log('Clicked!!')}
+                  onClick={() => this.handleOnClick(item.key)}
                 >
                   <div className={`selector ${this.state.activeTab === item.label ? 'active' : ''}`}></div>
                   <div className='item-container'>
@@ -59,6 +60,11 @@ class SideBar extends Component<Props, State> {
       </div>
     );
   }
+
+  private handleOnClick = (nextRoute: string) => {
+    this.props.history.push(`/${nextRoute}`)
+  }
+
 }
 
-export default SideBar;
+export default withRouter (SideBar);
