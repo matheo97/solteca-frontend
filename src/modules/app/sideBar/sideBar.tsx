@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import items from './itemsSideBar';
-import logo from '../../../images/parking/p-logo.svg';
 import { RouteComponentProps , withRouter } from 'react-router-dom';
 
 import './sideBar.scss';
@@ -15,8 +14,8 @@ interface Props extends RouteComponentProps{
 
 interface Item {
   label: string;
-  iconOn: string;
-  iconOff: string;
+  // iconOn: string;
+  // iconOff: string;
   key: string;
 }
 
@@ -32,7 +31,7 @@ class SideBar extends Component<Props, State> {
     return (
       <div className='side-bar-container'>
         <div className='side-bar-header'>
-          <img src={logo} alt=""/>
+          {/* <img src={logo} alt=""/> */}
         </div>
         {
           items.map(
@@ -46,7 +45,7 @@ class SideBar extends Component<Props, State> {
                   <div className='item-container'>
                     <div className='icon'>
                       <img 
-                        src={this.state.activeTab === item.label ? item.iconOn : item.iconOff} 
+                        // src={this.state.activeTab === item.label ? item.iconOn : item.iconOff} 
                         alt=""
                       />
                     </div>
