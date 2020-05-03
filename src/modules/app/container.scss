@@ -1,13 +1,19 @@
-admin-layout-component {
+.admin-layout-component {
   display: flex;
+  padding: 2rem;
   .sidebar-wrapper {
     width: fit-content;
+    z-index: -1;
   }
   .admin-layout-container {
-    margin-left: 3.5rem;
-    width: calc(100% - 26.1rem);
+    background-color: white;
+    border-radius: 1.2rem;
+    box-shadow: 1rem 0 5rem 0 rgba(61, 110, 146, 0.2);
     margin: 0 auto;
+    margin-left: -1.5rem;
     min-width: 115rem;
+    width: calc(100% - 8.5rem);
+    z-index: 1;
   }
   .section-title {
     font-size: 1.2rem;

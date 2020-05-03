@@ -5,7 +5,7 @@ import { RouteComponentProps } from '@reach/router';
 import { loadTickets } from '../../actions/index';
 import Sidebar from './sideBar/sideBar';
 import Parking from 'types';
-
+import './container.scss';
 interface Props extends RouteComponentProps {
   history: any;
   children: any;
@@ -31,7 +31,7 @@ class App extends Component<Props, State> {
     return (
       <div className='admin-layout-component'>
         <div className='sidebar-wrapper'>
-          <Sidebar example='epa'/>
+          <Sidebar />
         </div>
         <div className='admin-layout-container'>
           {this.props.children}
