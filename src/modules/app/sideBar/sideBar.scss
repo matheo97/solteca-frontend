@@ -4,9 +4,76 @@
   background-color: $blue;
   border-radius: 1.2rem;
   box-shadow: 1rem 0 5rem 0 rgba(61, 110, 146, 0.2);
-  height: 97%;
-  min-height: 97vh;
+  height: calc(100vh - 4rem);
+  min-height: 86rem;
   position: relative;
   width: 10rem;
-  z-index: -1;
+  z-index: 1;
+  .side-bar-header {
+    text-align: center;
+    margin-left: -1.5rem;
+    img {
+      height: 6.2rem;
+      margin-top: 55%;
+      width: 6.2rem;
+    }
+  }
+  .side-bar-buttons-wrapper {
+    margin-top: 110%;
+    .wrapper-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      height: 6.3rem;
+      margin-top: 60%;
+      width: 8.3rem;
+      .item-container {
+        .icon {
+          img {
+            height: 4.3rem;
+            width: 4.3rem;
+          }
+        }
+        .title {
+          color: #fff;
+          display: block;
+          font-family: Montserrat;
+          font-weight: 600;
+          margin-top: .5rem;
+          padding-top: .5rem;
+          text-transform: uppercase;
+        }
+      }
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 76.9rem) {
+  .side-bar-container {
+    min-height: 66rem;
+    .side-bar-header {
+      img {
+        margin-top: 35%;
+      }
+    }
+    .side-bar-buttons-wrapper {
+      margin-top: 80%;
+      text-align: center;
+      .wrapper-button {
+        margin-left: -1.2rem;
+        height: 4.3rem;
+        margin-top: 50%;
+        width: 6.3rem;
+        &:first-child {
+          margin-top: 0;
+          .title {
+            margin-left: -.7rem;
+          }
+        }
+      }
+    }
+  }
 }

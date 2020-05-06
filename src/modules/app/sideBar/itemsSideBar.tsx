@@ -1,6 +1,6 @@
 import dashboard from '../../../images/sideBar/dashboard.svg';
 import purchases from '../../../images/sideBar/purchases.svg';
-import sales from '../../../images/sideBar/purchases.svg';
+import sales from '../../../images/sideBar/sales.svg';
 import customers from '../../../images/sideBar/customers.svg';
 import taxes from '../../../images/sideBar/taxes.svg';
 
@@ -32,9 +32,9 @@ const items: Item[] = [
     key: 'clientes',
   },
   {
-    label: 'taxes',
+    label: 'impuestos',
     icon: taxes,
-    key: 'taxes',
+    key: 'impuestos',
   },
 ];
 

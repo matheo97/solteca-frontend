@@ -25,15 +25,14 @@ class SideBar extends Component<Props, State> {
         <div className='side-bar-header'>
           <img src={avatar} alt=''/>
         </div>
-        {
-          items.map(
-            (item: Item) => (
-              <div>
+        <div className='side-bar-buttons-wrapper'>
+          {
+            items.map(
+              (item: Item) => (
                 <button
                   className='wrapper-button'
                   onClick={() => this.handleOnClick(item.key)}
                 >
-                  <div className={`selector ${this.state.activeTab === item.label ? 'active' : ''}`}></div>
                   <div className='item-container'>
                     <div className='icon'>
                       <img 
@@ -45,10 +44,10 @@ class SideBar extends Component<Props, State> {
                     <span className='title'>{item.label}</span>
                   </div>
                 </button>
-              </div>
+              )
             )
-          )
-        }
+          }
+        </div>
       </div>
     );
   }
