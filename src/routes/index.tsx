@@ -34,16 +34,18 @@ history.listen((location) => {
   }
 });
 
-const GamingRouter = () => (
+const SoltecaRouter = () => (
   <Router history={history}>
     <App history={history}>
       <Switch>
-        <Route path='/getting-in' component={modules.VehicleGettingIn} />
-        <Route path='/getting-out' component={modules.VehicleGettingOut} />
-        <Route path='/tickets' component={modules.Tickets} />
+        <Route path='/clientes' component={modules.Customers} />
+        <Route path='/dashboard' component={modules.Dasboard} />
+        <Route path='/compras' component={modules.Purchases} />
+        <Route path='/ventas' component={modules.Sales} />
+        <Route path='/impuestos' component={modules.Taxes} />
       </Switch>
     </App>
   </Router>
 );
 
-export default GamingRouter;
+export default SoltecaRouter;
