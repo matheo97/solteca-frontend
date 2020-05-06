@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { AnyAction } from 'redux';
 import Parking from 'types';
 
-interface Props {
-  activeTickets: Parking.Ticket[];
-  oldTickets: Parking.Ticket[];
-} 
+interface Props {} 
 
-interface State {
-  testingString: string;
-}
-class VehicleGettingOut extends Component<Props, State> {
+interface State {}
+
+class Customers extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = {
-      testingString: 'VehicleGettingOut',
-    }
+    this.state = {}
   }
   render() {
     return (
       <div className='section-title'>
-        {this.state.testingString}
+        Customers
       </div>
     );
   }
@@ -35,4 +28,4 @@ const mapStateToProps = (state: Parking.FullState) => ({
 
 export default connect(
   mapStateToProps
-)(VehicleGettingOut);
+)(Customers);

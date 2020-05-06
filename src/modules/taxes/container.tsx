@@ -2,26 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Parking from 'types';
 
-interface Props {
-  activeTickets: Parking.Ticket[];
-  oldTickets: Parking.Ticket[];
-} 
+interface Props {} 
 
-interface State {
-  testingString: string;
-}
-class Ticket extends Component<Props, State> {
+interface State {}
 
+class Taxes extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = {
-      testingString: 'Ticket',
-    }
+    this.state = {}
   }
   render() {
     return (
-      <div>
-        {this.state.testingString}
+      <div className='section-title'>
+        Taxes
       </div>
     );
   }
@@ -34,4 +27,4 @@ const mapStateToProps = (state: Parking.FullState) => ({
 
 export default connect(
   mapStateToProps
-)(Ticket);
+)(Taxes);

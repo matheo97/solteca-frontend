@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import items from './itemsSideBar';
+import items, { Item } from './itemsSideBar';
 import { RouteComponentProps , withRouter } from 'react-router-dom';
+import avatar from '../../../images/sideBar/avatar.svg';
 
 import './sideBar.scss';
 
@@ -8,22 +9,13 @@ interface State {
   activeTab: string;
 }
 
-interface Props extends RouteComponentProps{
-  example: string;
-}
-
-interface Item {
-  label: string;
-  // iconOn: string;
-  // iconOff: string;
-  key: string;
-}
+interface Props extends RouteComponentProps{}
 
 class SideBar extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      activeTab: 'getting in',
+      activeTab: 'dashboard',
     }
   }
 
@@ -31,31 +23,31 @@ class SideBar extends Component<Props, State> {
     return (
       <div className='side-bar-container'>
         <div className='side-bar-header'>
-          {/* <img src={logo} alt=""/> */}
+          <img src={avatar} alt=''/>
         </div>
-        {
-          items.map(
-            (item: Item) => (
-              <div>
+        <div className='side-bar-buttons-wrapper'>
+          {
+            items.map(
+              (item: Item) => (
                 <button
                   className='wrapper-button'
                   onClick={() => this.handleOnClick(item.key)}
                 >
-                  <div className={`selector ${this.state.activeTab === item.label ? 'active' : ''}`}></div>
                   <div className='item-container'>
                     <div className='icon'>
                       <img 
-                        // src={this.state.activeTab === item.label ? item.iconOn : item.iconOff} 
-                        alt=""
+                        className={this.state.activeTab === item.label ? 'active' : ''} 
+                        src={item.icon} 
+                        alt=''
                       />
                     </div>
                     <span className='title'>{item.label}</span>
                   </div>
                 </button>
-              </div>
+              )
             )
-          )
-        }
+          }
+        </div>
       </div>
     );
   }
@@ -63,7 +55,6 @@ class SideBar extends Component<Props, State> {
   private handleOnClick = (nextRoute: string) => {
     this.props.history.push(`/${nextRoute}`)
   }
-
 }
 
 export default withRouter (SideBar);
