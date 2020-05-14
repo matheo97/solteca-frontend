@@ -1,32 +1,40 @@
 @import '../../../scss/utilities/variables';
 
 .side-bar-container {
+  align-items: flex-start;
   background-color: $blue;
   border-radius: 1.2rem;
   box-shadow: 1rem 0 5rem 0 rgba(61, 110, 146, 0.2);
+  display: flex;
+  flex-flow: column nowrap;
   height: calc(100vh - 4rem);
-  min-height: 86rem;
+  justify-content: flex-start;
   position: relative;
   width: 10rem;
   z-index: 1;
   .side-bar-header {
-    margin-left: -1.5rem;
-    text-align: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    height: 28%;
+    justify-content: center;
+    width: 80%;
     img {
       height: 6.2rem;
-      margin-top: 55%;
       width: 6.2rem;
     }
   }
   .side-bar-buttons-wrapper {
-    margin-top: 110%;
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 65%;
+    justify-content: space-evenly;
+    width: 85%;
     .wrapper-button {
       background-color: transparent;
       border: none;
       cursor: pointer;
-      height: 6.3rem;
-      margin-top: 60%;
-      width: 8.3rem;
       .item-container {
         .icon {
           img {
@@ -37,41 +45,11 @@
         .title {
           color: #fff;
           display: block;
-          font-family: Montserrat;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 1.1rem;
           font-weight: 600;
-          margin-top: .5rem;
-          padding-top: .5rem;
+          margin-top: .2rem;
           text-transform: uppercase;
-        }
-      }
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-  }
-}
-
-@media (max-width: 76.9rem) {
-  .side-bar-container {
-    min-height: 66rem;
-    .side-bar-header {
-      img {
-        margin-top: 35%;
-      }
-    }
-    .side-bar-buttons-wrapper {
-      margin-top: 80%;
-      text-align: center;
-      .wrapper-button {
-        height: 4.3rem;
-        margin-left: -1.2rem;
-        margin-top: 50%;
-        width: 6.3rem;
-        &:first-child {
-          margin-top: 0;
-          .title {
-            margin-left: -.7rem;
-          }
         }
       }
     }

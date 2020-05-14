@@ -12,7 +12,7 @@ export interface Item {
 
 const items: Item[] = [
   {
-    label: 'dashboard',
+    label: 'panel',
     icon: dashboard,
     key: 'dashboard',
   },

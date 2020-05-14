@@ -28,8 +28,9 @@ class SideBar extends Component<Props, State> {
         <div className='side-bar-buttons-wrapper'>
           {
             items.map(
-              (item: Item) => (
+              (item: Item, index: number) => (
                 <button
+                  key={index}
                   className='wrapper-button'
                   onClick={() => this.handleOnClick(item.key)}
                 >
