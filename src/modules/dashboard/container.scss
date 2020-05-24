@@ -1,0 +1,55 @@
+.dashboard-wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  height: inherit;
+  justify-content: space-evenly;
+  min-height: inherit;
+  min-width: inherit;
+  padding: 4.6rem;
+  width: inherit;
+  .upper-container {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: inherit;
+    .upload-file {
+      margin-top: 3rem;
+      min-height: 50rem;
+      min-width: 78.2rem;
+      background-color: rgb(97, 20, 220);
+    }
+    .graph {
+      margin-top: 3rem;
+      min-height: 50rem;
+      min-width: 65.6rem;
+      background-color: crimson;
+    }
+  }
+  .cards-container {
+    align-items: flex-start;
+    align-content: space-between;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: inherit;
+    .card {
+      margin-top: 3rem;
+      min-height: 23.6rem;
+      min-width: 36.6rem;
+      &.debt {
+        background-color: red;
+      }
+      &.pending {
+        background-color: yellow;
+      }
+      &.iva {
+        background-color: blue;
+      }
+      &.available {
+        background-color: green;
+      }
+    }
+  }
+}

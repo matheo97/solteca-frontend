@@ -9,9 +9,10 @@
     background-color: white;
     border-radius: 1.2rem;
     box-shadow: 1rem 0 5rem 0 rgba(61, 110, 146, 0.2);
-    height: calc(100vh - 4rem);
+    height: fit-content;
     margin: 0 auto;
     margin-left: -1.5rem;
+    min-height: calc(100vh - 4rem);
     width: calc(100% - 8.5rem);
     z-index: 1;
   }
