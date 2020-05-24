@@ -1,0 +1,65 @@
+.card-container {
+  background-color: white;
+  border-radius: 1.4rem;
+  box-shadow: 1rem 0 5rem 0 rgba(52, 131, 224, 0.2);
+  padding: 3rem;
+  margin-top: 3rem;
+  height: 23.6rem;
+  width: 36.6rem;
+  position: relative;
+  .title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  .value {
+    font-weight: bold;
+    font-size: 4.8rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    &.blue {
+      color: #4D6D9F;
+    }
+    &.green {
+      color: #4EAA52;
+    }
+    &.red {
+      color: #fc3554;
+    }
+  }
+  .icon {
+    margin-top: .5rem;
+    text-align: center;
+    img {
+      height: 5.8rem;
+      width: 5.8rem;
+    }
+  }
+  .date {
+    bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+    left: 2rem;
+    position: absolute;
+    opacity: .3;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  .quarter {
+    bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+    opacity: .3;
+    position: absolute;
+    right: 2rem;
+    text-transform: uppercase;
+  }
+  .update-icon {
+    bottom: 1rem;
+    height: 3.7rem;
+    position: absolute;
+    right: 2rem;
+    width: 3.7rem;
+  }
+}
