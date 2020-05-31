@@ -17,14 +17,30 @@
     .upload-file {
       margin-top: 3rem;
       min-height: 50rem;
-      min-width: 78.2rem;
+      width: 65.6rem;
       background-color: rgb(97, 20, 220);
     }
     .graph {
+      background-color: white;
+      border-radius: 1.4rem;
+      box-shadow: 1rem 0 5rem 0 rgba(52, 131, 224, 0.2);
+      height: 50rem;
       margin-top: 3rem;
-      min-height: 50rem;
-      min-width: 65.6rem;
-      background-color: crimson;
+      padding: 4rem;
+      width: 78.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .graph-container {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+      }
     }
   }
   .cards-container {
