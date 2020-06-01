@@ -19,23 +19,6 @@ class Dashboard extends Component<Props, State> {
     this.state = {}
   }
   render() {
-    const data = [
-      {
-        quater: "Cuatrimestre 1",
-        cuatrimestre1: 16200000,
-        cuatrimestre1Color: "hsl(45, 70%, 50%)",
-      },
-      {
-        quater: "Cuatrimestre 2",
-        cuatrimestre2: 6200000,
-        cuatrimestre2Color: "hsl(89, 70%, 50%)",
-      },
-      {
-        quater: "Cuatrimestre 3",
-        cuatrimestre3: 10000000,
-        cuatrimestre3Color: "hsl(346, 70%, 50%)",
-      },
-    ]
     return (
       <div className='dashboard-wrapper'>
         <div className='upper-container'>
@@ -43,7 +26,9 @@ class Dashboard extends Component<Props, State> {
             <div className='title'>ventas por cuatrimestre:</div>
             <div className='graph-container'>
               <Graph 
-                data={data}
+                firstQuater={10000000}
+                secondQuater={8000000}
+                thirdQuater={4000000}
               />
             </div>
           </div>
