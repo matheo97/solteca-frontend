@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Parking from 'types';
-import { Card } from '../../components';
+import { FileList, Card } from '../../components';
 import Graph from './graph';
 import bankrupt from '../../images/dashboard/bankrupt.svg';
 import earnings from '../../images/dashboard/earnings.svg';
@@ -33,7 +33,7 @@ class Dashboard extends Component<Props, State> {
             </div>
           </div>
           <div className='upload-file'>
-            upload-file
+            <FileList />
           </div>
         </div>
         <div className='cards-container'>
