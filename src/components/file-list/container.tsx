@@ -34,7 +34,7 @@ class FileList extends Component<Props, State> {
   render() {
     return (
       <DragAndDrop uploadFiles={this.uploadFile}>
-        <div style={{height: 300, width: 250}}>
+        <div className='upload-file-list'>
           {this.state.files.map((file: any, i: any) =>
             <div key={i}>{file}</div>
           )}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import InputFile from './inputFile';
+import uploadFile from '../../images/dashboard/upload-file.svg';
+import './container.scss';
 
 interface Props {
   children: React.ReactNode;
@@ -78,43 +80,18 @@ class DragAndDrop extends Component<Props, State> {
 
   render() {
     return (
-      <>
+      <div className='upload-file-container'>
         <div
-          style={{display: 'inline-block', position: 'relative'}}
           ref={this.dropRef}
+          className={`upload-file-section ${this.state.dragging ? 'dragging' : ''}`}
         >
-          {this.state.dragging &&
-            <div 
-              style={{
-                border: 'dashed grey 4px',
-                backgroundColor: 'rgba(255,255,255,.8)',
-                position: 'absolute',
-                top: 0,
-                bottom: 0,
-                left: 0, 
-                right: 0,
-                zIndex: 9999
-              }}
-            >
-              <div 
-                style={{
-                  position: 'absolute',
-                  top: '50%',
-                  right: 0,
-                  left: 0,
-                  textAlign: 'center',
-                  color: 'grey',
-                  fontSize: 36
-                }}
-              >
-                <div>drop here :)</div>
-              </div>
-            </div>
-          }
-            {this.props.children}
+          <img className='upload-logo' src={uploadFile} alt='upload-file'/>
+          <span className='upload-instructions'>Arrastra y lanza tu archivo aquí</span>
+          <span className='upload-instructions'>O</span>
+          <InputFile onChange={this.props.uploadFiles} />
         </div>
-        <InputFile onChange={this.props.uploadFiles} />
-      </>
+        {this.props.children}
+      </div>
     )
   }
 }

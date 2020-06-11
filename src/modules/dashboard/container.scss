@@ -15,10 +15,12 @@
     justify-content: space-around;
     width: inherit;
     .upload-file {
+      background-color: white;
+      border-radius: 1.4rem;
+      box-shadow: 1rem 0 5rem 0 rgba(52, 131, 224, 0.2);
       margin-top: 3rem;
-      min-height: 50rem;
+      height: 50rem;
       width: 65.6rem;
-      background-color: rgb(97, 20, 220);
     }
     .graph {
       background-color: white;

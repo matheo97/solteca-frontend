@@ -5,7 +5,7 @@ interface Props {
 }
 
 const InputFile = (props: Props) => (
-  <div>
+  <div className='upload-file-manually'>
     <label>
       Buscar
       <input
