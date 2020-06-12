@@ -44,9 +44,44 @@
     }
   }
   .upload-file-list {
+    background-color: rgba(52, 132, 224, 0.203);
     border-top-right-radius: 1.4rem;
     border-bottom-right-radius: 1.4rem;
-    background-color: rgba(52, 132, 224, 0.251);
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 6rem 2.5rem;
     width: 50%;
+    .file-element {
+      display: flex;
+      justify-content: space-between;
+      .left {
+        .progress-icon {
+          display: inline-block;
+          height: 2.5rem;
+          transform: translate(-.7rem, .7rem);
+          width: 2.5rem;
+        }
+        .file-name {
+          font-size: 1.6rem;
+          font-weight: bold;
+        }
+      }
+      .right {
+        .download-icon {
+          cursor: pointer;
+          display: inline-block;
+          height: 2rem;
+          transform: translate(-2rem, .9rem);
+          width: 2rem;
+        }
+        .delete-icon {
+          cursor: pointer;
+          display: inline-block;
+          height: 1.8rem;
+          transform: translate(-.7rem, .7rem);
+          width: 1.7rem;
+        }
+      }
+    }
   }
 }

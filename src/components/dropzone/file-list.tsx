@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
-import DragAndDrop from '../dropzone/container';
+import DragAndDrop from './container';
+import progressIcon from '../../images/dashboard/check.svg';
+import deleteIcon from '../../images/dashboard/close.svg';
+import downloadIcon from '../../images/dashboard/download.svg';
+
+import './container.scss';
 
 interface Props {};
 
@@ -36,7 +41,16 @@ class FileList extends Component<Props, State> {
       <DragAndDrop uploadFiles={this.uploadFile}>
         <div className='upload-file-list'>
           {this.state.files.map((file: any, i: any) =>
-            <div key={i}>{file}</div>
+            <div className='file-element' key={i}>
+              <div className='left'>
+                <img src={progressIcon} className='progress-icon' alt='progress-icon'/>
+                <span className='file-name'>{file}</span>
+              </div>
+              <div className='right'>
+                <img src={downloadIcon} className='download-icon' alt='download-icon'/>
+                <img src={deleteIcon} className='delete-icon' alt='delete-icon'/>
+              </div>
+            </div>
           )}
         </div>
       </DragAndDrop>
