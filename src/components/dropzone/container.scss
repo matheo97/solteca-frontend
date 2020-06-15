@@ -1,8 +1,10 @@
+@import '../../scss/utilities/variables';
+
 .upload-file-container {
   display: flex;
   flex-flow: row nowrap;
-  height: inherit;
-  width: inherit;
+  height: 50rem;
+  width: 65.6rem;
   .upload-file-section {
     align-items: center;
     display: flex;
@@ -80,6 +82,58 @@
           height: 1.8rem;
           transform: translate(-.7rem, .7rem);
           width: 1.7rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .upload-file-container {
+    margin-top: 0;
+    height: 38rem;
+    width: 57.6rem;
+    .upload-file-section {
+      .upload-logo {
+        height: 8rem;
+        width: 8rem;
+      }
+      .upload-instructions {
+        font-size: 1.4rem;
+      }
+      .upload-file-manually {
+        font-size: 1.4rem;
+        height: 3.7rem;
+        width: 13.5rem;
+        label {
+          cursor: pointer;
+        }
+      }
+    }
+    .upload-file-list {
+      padding: 4rem 3rem;
+      .file-element {
+        .left {
+          .progress-icon {
+            height: 2rem;
+            transform: translate(-.7rem, .5rem);
+            width: 2rem;
+          }
+          .file-name {
+            font-size: 1.5rem;
+          }
+        }
+        .right {
+          .download-icon {
+            height: 1.5rem;
+            transform: translate(-2rem, .8rem);
+            width: 1.5rem;
+          }
+          .delete-icon {
+            height: 1.4rem;
+            transform: translate(-.7rem, .6rem);
+            width: 1.3rem;
+          }
         }
       }
     }

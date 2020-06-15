@@ -1,3 +1,5 @@
+@import '../../scss/utilities/variables';
+
 .dashboard-wrapper {
   align-items: center;
   display: flex;
@@ -7,7 +9,7 @@
   min-height: inherit;
   min-width: inherit;
   padding: 4.6rem;
-  width: inherit;
+  width: 100%;
   .upper-container {
     align-items: center;
     display: flex;
@@ -18,16 +20,12 @@
       background-color: white;
       border-radius: 1.4rem;
       box-shadow: 1rem 0 5rem 0 rgba(52, 131, 224, 0.2);
-      margin-top: 3rem;
-      height: 50rem;
-      width: 65.6rem;
     }
     .graph {
       background-color: white;
       border-radius: 1.4rem;
       box-shadow: 1rem 0 5rem 0 rgba(52, 131, 224, 0.2);
       height: 50rem;
-      margin-top: 3rem;
       padding: 4rem;
       width: 78.2rem;
       display: flex;
@@ -67,6 +65,24 @@
       }
       &.available {
         background-color: green;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .dashboard-wrapper {
+    padding: 3rem;
+    .upper-container { 
+      .graph {
+        height: 38rem;
+        padding: 3rem;
+        width: 54.2rem;
+        .title {
+          font-size: 1.4rem;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
       }
     }
   }
