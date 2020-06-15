@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Parking from 'types';
-import { UploadFile, Card } from '../../components';
+import { UploadFile, Card, Modal } from '../../components';
 import Graph from './graph';
 import bankrupt from '../../images/dashboard/bankrupt.svg';
 import earnings from '../../images/dashboard/earnings.svg';
@@ -64,6 +64,13 @@ class Dashboard extends Component<Props, State> {
             date={'febrero 21 de 2020'}
           />
         </div>
+
+        {/* Update amount of money in the bankAccount */}
+        <Modal 
+          children='12312'
+          show={false}
+          onClose={() => console.log('Works!')}
+        />
       </div>
     );
   }

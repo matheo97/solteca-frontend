@@ -1,0 +1,23 @@
+.modal {
+  position:absolute;
+  background-color: rgba(5, 5, 5, 0.731);
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .modal-child {
+    background-color: white;
+    height: auto;
+    min-height: 48.1rem;
+    min-width: 62.8rem;
+    position: relative;
+    width: auto;
+    .close-button {
+      position: absolute;
+      top: 5%;
+      right: 5%;
+    }
+  }
+}
