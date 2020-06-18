@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Parking from 'types';
 import { UploadFile, Card, Modal } from '../../components';
@@ -11,13 +11,24 @@ import bank from '../../images/dashboard/bank.svg';
 import './container.scss';
 interface Props {} 
 
-interface State {}
+interface State {
+  displayUpdateBankAccountModal: boolean;
+}
 
-class Dashboard extends Component<Props, State> {
+class Dashboard extends PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = {}
+    this.state = {
+      displayUpdateBankAccountModal: false,
+    }
   }
+
+  private readonly onChangeBankAccountModal = () => {
+    this.setState({ 
+      displayUpdateBankAccountModal: !this.state.displayUpdateBankAccountModal
+    })
+  }
+
   render() {
     return (
       <div className='dashboard-wrapper'>
@@ -62,14 +73,15 @@ class Dashboard extends Component<Props, State> {
             value={'2.000.000'}
             color={'green'}
             date={'febrero 21 de 2020'}
+            changeBankAccount={this.onChangeBankAccountModal}
           />
         </div>
 
         {/* Update amount of money in the bankAccount */}
         <Modal 
           children='12312'
-          show={false}
-          onClose={() => console.log('Works!')}
+          show={this.state.displayUpdateBankAccountModal}
+          onClose={this.onChangeBankAccountModal}
         />
       </div>
     );

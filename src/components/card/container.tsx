@@ -10,6 +10,7 @@ interface Props {
   color: string;
   date?: string;
   quarter?: number;
+  changeBankAccount?(): void;
 }
 
 const Card = (props: Props) => (
@@ -22,7 +23,7 @@ const Card = (props: Props) => (
     {props.date ? (
       <>
         <div className='date'>{props.date}</div>
-        <img className='update-icon' src={icon} alt='Update Bank Account'/>
+        <img className='update-icon' onClick={props.changeBankAccount} src={icon} alt='Update Bank Account'/>
       </>
     ) : null}
     {props.quarter ? (

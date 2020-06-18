@@ -1,12 +1,13 @@
 .modal {
-  position:absolute;
-  background-color: rgba(5, 5, 5, 0.731);
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
-  display: flex;
   align-items: center;
+  background-color: rgba(5, 5, 5, 0.731);
+  display: flex;
+  height: 100vh;
   justify-content: center;
+  left: 0;
+  overflow: auto;
+  position: absolute;
+  width: 100vw;
   .modal-child {
     background-color: white;
     height: auto;
@@ -16,8 +17,8 @@
     width: auto;
     .close-button {
       position: absolute;
-      top: 5%;
       right: 5%;
+      top: 5%;
     }
   }
 }
