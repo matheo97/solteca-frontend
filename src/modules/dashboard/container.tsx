@@ -7,6 +7,7 @@ import bankrupt from '../../images/dashboard/bankrupt.svg';
 import earnings from '../../images/dashboard/earnings.svg';
 import media from '../../images/dashboard/media.svg';
 import bank from '../../images/dashboard/bank.svg';
+import UpdateBankAccount from './updateBankAccountModal';
 
 import './container.scss';
 interface Props {} 
@@ -76,13 +77,14 @@ class Dashboard extends PureComponent<Props, State> {
             changeBankAccount={this.onChangeBankAccountModal}
           />
         </div>
-
         {/* Update amount of money in the bankAccount */}
-        <Modal 
-          children='12312'
+        <Modal
           show={this.state.displayUpdateBankAccountModal}
-          onClose={this.onChangeBankAccountModal}
-        />
+        >
+          <UpdateBankAccount 
+            onCancel={this.onChangeBankAccountModal}
+          />
+        </Modal> 
       </div>
     );
   }

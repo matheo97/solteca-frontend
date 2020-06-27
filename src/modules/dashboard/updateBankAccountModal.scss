@@ -1,0 +1,37 @@
+.update-bank-account {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .logo {
+    height: 10.9rem;
+    margin-top: 4rem;
+    width: 13.7rem;
+  }
+  .title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-transform: uppercase;
+  }
+  .bank-account-value {
+    color: #4EAA52;
+    font-weight: bold;
+    font-size: 4.8rem;
+    text-align: center;
+  }
+  .last-date {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    margin-top: -1rem;
+    opacity: .35;
+    text-transform: uppercase;
+  }
+  .footer-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    width: 42rem;
+  }
+}

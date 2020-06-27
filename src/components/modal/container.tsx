@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import './container.scss';
 
 interface Props {
-  children: string;
+  children: React.ReactNode;
   show: boolean;
-  onClose(): void; 
+  onClose?(): void; 
 };
 
 interface State {};
@@ -19,9 +19,7 @@ class Modal extends Component<Props, State> {
       <div className='modal' id='modal'>
         <div className='modal-child'>
           {this.props.children}
-          <button className='close-button' onClick={this.props.onClose}>
-            X
-          </button>
+          {this.props.onClose ? (<button className='close-button' onClick={this.props.onClose}>X</button>) : null}
         </div>
       </div>
     );

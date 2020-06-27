@@ -10,12 +10,16 @@
   width: 100vw;
   .modal-child {
     background-color: white;
-    height: auto;
+    height: fit-content;
     min-height: 48.1rem;
     min-width: 62.8rem;
     position: relative;
-    width: auto;
+    width: fit-content;
     .close-button {
+      background-color: transparent;
+      border: none;
+      color: slategray;
+      font-size: 1.8rem;
       position: absolute;
       right: 5%;
       top: 5%;
