@@ -55,3 +55,32 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .side-bar-container {
+    .side-bar-header {
+      width: 69%;
+      img {
+        height: 5.2rem;
+        width: 5.2rem;
+      }
+    }
+    .side-bar-buttons-wrapper {
+      width: 85%;
+      .wrapper-button {
+        .item-container {
+          .icon {
+            img {
+              height: 3.3rem;
+              width: 3.3rem;
+            }
+          }
+          .title {
+            font-size: 1rem;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import '../../scss/utilities/variables';
+
+.button-personalized {
+  border: none;
+  border-radius: 2.8rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  height: 4rem;
+  width: 14.2rem;
+  &.primary {
+    background-color: $blue;
+    box-shadow: 0 0 .8rem 0 $blue;
+  }
+  &.secondary {
+    background-color: $red;
+    box-shadow: 0 0 .8rem 0 $red;
+  }
+  &.terciary {
+    background-color: $yellow;
+    box-shadow: 0 0 .8rem 0 $yellow;
+  }
+}

@@ -1,0 +1,89 @@
+@import '../../scss/utilities/variables';
+
+.dashboard-wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  height: inherit;
+  justify-content: space-evenly;
+  min-height: inherit;
+  min-width: inherit;
+  padding: 4.6rem;
+  width: 100%;
+  .upper-container {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: inherit;
+    .upload-file {
+      background-color: white;
+      border-radius: 1.4rem;
+      box-shadow: 1rem 0 5rem 0 rgba(52, 131, 224, 0.2);
+    }
+    .graph {
+      background-color: white;
+      border-radius: 1.4rem;
+      box-shadow: 1rem 0 5rem 0 rgba(52, 131, 224, 0.2);
+      height: 50rem;
+      padding: 4rem;
+      width: 78.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .graph-container {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+      }
+    }
+  }
+  .cards-container {
+    align-items: flex-start;
+    align-content: space-between;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: inherit;
+    .card {
+      margin-top: 3rem;
+      min-height: 23.6rem;
+      min-width: 36.6rem;
+      &.debt {
+        background-color: red;
+      }
+      &.pending {
+        background-color: yellow;
+      }
+      &.iva {
+        background-color: blue;
+      }
+      &.available {
+        background-color: green;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .dashboard-wrapper {
+    padding: 3rem;
+    .upper-container { 
+      .graph {
+        height: 38rem;
+        padding: 3rem;
+        width: 54.2rem;
+        .title {
+          font-size: 1.4rem;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

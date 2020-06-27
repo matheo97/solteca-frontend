@@ -3,8 +3,9 @@
 */
 $blue: #3483E0;
 $green: #53e198;
-$red: #fb7a6a;
-$gray: #cccccc;
+$red: #E04F4F;
+$gray: #8d8b8b;
+$yellow: #EFCA31;
 
 /*
  Screen Size
@@ -36,3 +37,13 @@ $hover-opacity: 0.7;
 */
 $gutter-horizontal: 2.2rem;
 $gutter-vertical: 4rem;
+
+/*
+ Font Size
+*/
+$card-box-shadow: 1rem 0 5rem 0 rgba(52, 131, 224, 0.2);
+
+/*
+ Breakpoints
+*/
+$breakpoint-desktop-1080p: 1870px;
