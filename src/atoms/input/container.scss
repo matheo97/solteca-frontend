@@ -1,11 +1,7 @@
 @import '../../scss/utilities/variables';
 
 .input-personalized-wrapper {
-  position: relative;
   width: inherit;
-  .icon {
-    position: absolute;
-  }
   .input-personalized {
     border: none;
     border-radius: 4rem;
@@ -18,5 +14,10 @@
     padding-top: .2rem;
     padding-left: 2rem;
     width: 33.1rem;
+
+    &::placeholder{
+      color: #4D4F5C;
+      font-size: 2rem;
+    }
   }
 }

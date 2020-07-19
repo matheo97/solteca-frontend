@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Checkbox, Input, Select } from '../../atoms';
 import { options } from './selectOptions';
-import searchIcon from '../../images/general/search-icon.svg'
 
 import './container.scss';
 interface Props {} 
@@ -28,7 +27,6 @@ class Purchases extends Component<Props, State> {
           <Input 
             onChange={this.onChangeSearchBar} 
             width={'inherit'} 
-            icon={searchIcon}
             placeholder='Buscar'
           />
           <div className='form-actions'>
