@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Checkbox, Input, Select } from '../../atoms';
-import { options } from './selectOptions';
+import { Table } from '../../components';
+import { options, header, rows } from './constants';
 
 import './container.scss';
+
 interface Props {} 
 
 interface State {
@@ -61,6 +63,12 @@ class Purchases extends Component<Props, State> {
               />
             </div>
           </div>
+        </div>
+        <div className='content'>
+          <Table 
+            header={header}
+            rows={rows}
+          />
         </div>
       </div>
     );

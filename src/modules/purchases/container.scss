@@ -7,7 +7,7 @@
     flex-flow: column nowrap;
     height: inherit;
     justify-content: space-evenly;
-    padding: 8rem 12rem;
+    padding: 8rem 12rem 4.4rem 12rem;
     width: 100%;
     .form-actions {
       display: flex;
@@ -36,6 +36,16 @@
         }
       }
     }
+  }
+  .content {
+    align-items: center;
+    box-shadow: 1rem 0 5rem 0 rgba(52, 131, 224, 0.2);
+    display: flex;
+    height: inherit;
+    justify-content: center;
+    margin: 0 12rem;
+    padding: 3rem 5.4rem 6rem 5.4rem;
+    width: auto;
   }
 }
 
