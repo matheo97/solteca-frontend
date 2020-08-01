@@ -10,16 +10,17 @@
     padding: 8rem 12rem 4.4rem 12rem;
     width: 100%;
     .form-actions {
-      display: flex;
-      flex-flow: nowrap;
-      justify-content: space-between;
+      height: 5rem;
       margin-top: 1.5rem;
+      position: relative;
       width: inherit;
       .form {
         align-items: flex-start;
         display: flex;
         flex-flow: nowrap;
         justify-content: space-around;
+        left: 0;
+        position: absolute;
         width: 50%;
         .check-box-container {
           margin-top: 1.5rem;
@@ -29,6 +30,8 @@
         display: flex;
         flex-flow: nowrap;
         justify-content: space-around;
+        position: absolute;
+        right: 0;
         width: 50%;
         .button-personalized {
           font-size: 1.6rem;
