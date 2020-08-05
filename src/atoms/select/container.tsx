@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import arrowDown from '../../images/general/down-arrow.svg';
+
 import './container.scss';
 
 interface Props {
@@ -24,7 +25,7 @@ class Select extends Component<Props, State> {
   }
 
   render() {
-    const height = this.state.showOptions ? (5 * this.props.options.length) : 5;
+    const height = this.generateHeight();
     const selectedOption = this.state.selectedOption ? this.state.selectedOption : this.props.defaultOption;
     return (
       <div className='select-container' style={{ height: `${height}rem` }}>
@@ -35,10 +36,10 @@ class Select extends Component<Props, State> {
         { this.state.showOptions ? (
           <div className='options'>
             { this.props.options.map(
-                (option) => {
+                (option, index) => {
                   if (option.copy !== selectedOption) {
                     return (
-                      <>
+                      <div key={index}>
                         <hr/>
                         <div 
                           className='option' 
@@ -46,7 +47,7 @@ class Select extends Component<Props, State> {
                         >
                           { option.copy }
                         </div>
-                      </>
+                      </div>
                     )
                   } else {
                     return null;
@@ -62,6 +63,12 @@ class Select extends Component<Props, State> {
 
   private readonly openOptions = () => {
     this.setState({ showOptions: !this.state.showOptions });
+  }
+
+  private readonly generateHeight = () => {
+    let perElement = 5;
+    if (window.innerWidth <= 1870) perElement = 4.5;
+    return this.state.showOptions ? (perElement * this.props.options.length) : perElement;
   }
 
   private readonly onSelectedOptionChange = (value: string) => {

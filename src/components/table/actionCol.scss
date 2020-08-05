@@ -33,3 +33,9 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .action-col {
+    padding-left: 1.8rem;
+  }
+}

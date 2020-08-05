@@ -1,14 +1,15 @@
 @import '../../scss/utilities/variables';
 
 .select-container {
+  align-items: center;
   background-color: white;
   border-radius: 3rem;
   box-shadow: 0 1.3rem 6.5rem -1.3rem $blue;
-  width: 20rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  width: 20rem;
+  z-index: 110;
   .default-option {
     cursor: pointer;
     span {
@@ -40,6 +41,23 @@
       width: 100%;
       &:hover {
         opacity: .5;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .select-container {
+    width: 18rem;
+    .default-option {
+      span {
+        font-size: 1.2rem;
+      }
+    }
+    .options {
+      font-size: 1.2rem;
+      .option {
+        margin-top: 1.2rem;
       }
     }
   }

@@ -57,14 +57,10 @@ class Purchases extends Component<Props, State> {
               <Button 
                 copy='NUEVA COMPRA'
                 type='terciary'
-                height={5}
-                width={20}
               />
               <Button 
                 copy='NUEVA COTIZACION'
                 type='primary'
-                height={5}
-                width={20}
               />
             </div>
           </div>

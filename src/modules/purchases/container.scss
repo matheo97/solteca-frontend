@@ -23,7 +23,7 @@
         position: absolute;
         width: 50%;
         .check-box-container {
-          margin-top: 1.5rem;
+          margin-top: 1.3rem;
         }
       }
       .actions {
@@ -34,8 +34,10 @@
         right: 0;
         width: 50%;
         .button-personalized {
+          height: 5rem;
           font-size: 1.6rem;
           letter-spacing: .1rem;
+          width: 20rem;
         }
       }
     }
@@ -53,4 +55,27 @@
 }
 
 @media (max-width: $breakpoint-desktop-1080p) {
+  .purchases-wrapper {
+    .header {
+      padding: 4rem 10rem 1.5rem 11rem;
+      .form-actions {
+        .form {
+          width: 60%;
+        }
+        .actions {
+          width: 40%;
+          .button-personalized {
+            height: 4.5rem;
+            font-size: 1.4rem;
+            letter-spacing: .1rem;
+            width: 18rem;
+          }
+        }
+      }
+    }
+    .content {
+      margin: 0 10rem 0 11.5rem;
+      padding: 3rem 5.4rem 4.6rem 5.4rem;
+    }
+  }
 }

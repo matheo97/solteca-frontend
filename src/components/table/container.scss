@@ -3,7 +3,7 @@
 .table {
   width: -webkit-fill-available;
   height: inherit;
-  border-spacing: 0 15px;
+  border-spacing: 0 1.5rem;
   border-collapse: separate;
   position: relative;
   .table-header-wrapper {
@@ -70,6 +70,44 @@
             color: #fff;
             font-size: 1.4rem;
             font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .table {
+    border-spacing: 0 1.5rem;
+    .table-header-wrapper {
+      .table-header {
+        .header-element {
+          font-size: 1.7rem;
+        }
+      }
+    }
+    .table-body-wrapper {
+      .row {
+        height: 4.5rem;
+        .row-element {
+          font-size: 1.5rem;
+          &.first-element {
+            padding-left: 2.5rem;
+          }
+        }
+      }
+    }
+    .pagination-wrapper {
+      .square-fill {
+        &.pagination {
+          ul {
+            a {
+              font-size: 1.3rem;
+            }
+            .is-active {
+              font-size: 1.3rem;
+            }
           }
         }
       }
