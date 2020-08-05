@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import ActionCol from './actionCol';
+import Pagination from 'react-pagination-library';
+import 'react-pagination-library/build/css/index.css';
+
 import './container.scss';
 
 interface Props {
-  header: Array<{ name: string, width: string }>
-  rows: Array<any>
+  currentPage: number;
+  header: Array<{ name: string, width: string }>;
+  rows: Array<any>;
+  totalPages: number;
+  changeCurrentPage(nextPage: number): void;
 };
 
 interface State {};
@@ -61,11 +67,23 @@ class Table extends Component<Props, State> {
     </tbody>
   );
 
+  private readonly pagination = () => (
+    <div className='pagination-wrapper'>
+      <Pagination
+        changeCurrentPage={this.props.changeCurrentPage}
+        currentPage={this.props.currentPage}
+        totalPages={this.props.totalPages}
+        theme='square-fill'
+      />
+    </div>
+  );
+
   render() {
     return (
       <table className='table'>
         {this.createHeader()}
         {this.createRows()}
+        {this.pagination()}
       </table>
     );
   }

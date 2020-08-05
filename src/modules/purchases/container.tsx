@@ -11,6 +11,8 @@ interface State {
   inputSearch: string;
   checkPaid: boolean;
   checkQuote: boolean;
+  currentPage: number;
+  totalPages: number;
 }
 
 class Purchases extends Component<Props, State> {
@@ -20,8 +22,11 @@ class Purchases extends Component<Props, State> {
       inputSearch: '',
       checkPaid: false,
       checkQuote: false,
+      currentPage: 1,
+      totalPages: 10,
     }
   }
+
   render() {
     return (
       <div className='purchases-wrapper'>
@@ -68,6 +73,9 @@ class Purchases extends Component<Props, State> {
           <Table 
             header={header}
             rows={rows}
+            changeCurrentPage={this.changeCurrentPage}
+            currentPage={this.state.currentPage}
+            totalPages={this.state.totalPages}
           />
         </div>
       </div>
@@ -85,6 +93,11 @@ class Purchases extends Component<Props, State> {
 
   private readonly onChangeSearchBar = () => {
     console.log('update state variable in dashboard');
+  }
+
+  private readonly changeCurrentPage = (nextPage: number) => {
+    this.setState({ currentPage: nextPage });
+    console.log('change current page', nextPage);
   }
 }
 
