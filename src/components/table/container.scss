@@ -1,11 +1,12 @@
 @import '../../scss/utilities/variables';
 
 .table {
-  width: -webkit-fill-available;
-  height: inherit;
-  border-spacing: 0 1.5rem;
   border-collapse: separate;
+  border-radius: 1.5rem;
+  border-spacing: 0 1.5rem;
+  height: inherit;
   position: relative;
+  width: -webkit-fill-available;
   .table-header-wrapper {
     .table-header {
       .header-element {
