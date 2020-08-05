@@ -18,8 +18,13 @@
   }
   .table-body-wrapper {
     .row {
-      background-color: $success;
       height: 5rem;
+      &.green {
+        background-color: $green;
+      }
+      &.red {
+        background-color: $red;
+      }
       .row-element {
         border: 0;
         font-size: 1.8rem;

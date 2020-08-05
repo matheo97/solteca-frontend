@@ -14,10 +14,10 @@ export const header: Array <{ name: string, width: string}> = [
 ];
 
 export const rows = [
-  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', acciones: '...' },
-  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', acciones: '...' },
-  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', acciones: '...' },
-  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', acciones: '...' },
-  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', acciones: '...' },
-  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', acciones: '...' },
+  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', paid: true },
+  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', paid: false },
+  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', paid: false },
+  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', paid: true },
+  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', paid: true },
+  { facturaNo: '125', client: 'pmi representaciones', total: '$15.000.000', date: 'febrero 20 de 2020', paid: false },
 ];

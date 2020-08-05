@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ActionCol from './actionCol';
 import './container.scss';
 
 interface Props {
@@ -36,10 +37,22 @@ class Table extends Component<Props, State> {
     <tbody className='table-body-wrapper'>
       {
         this.props.rows.map((row, index: number) => (
-          <tr key={index} className='row' onClick={() => console.log('index', index)}>
+          <tr 
+            key={index} 
+            className={`row ${row.paid ? 'green' : 'red'}`}  
+            onClick={() => console.log('all row clicked')}>
             {
               Object.keys(row).map((key: string, index: number) => (
-                <td className={`row-element ${index === 0 ? 'first-element' : ''}`} key={index}>{row[key]}</td>
+                <td 
+                  className={`row-element ${index === 0 ? 'first-element' : ''}`} 
+                  key={index}
+                >
+                  { key === 'paid' ? (
+                      <ActionCol 
+                        paid={row[key]}
+                      /> 
+                    ) : row[key] }
+                </td>
               ))
             }
           </tr>
