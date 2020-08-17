@@ -12,7 +12,7 @@ interface State {
   checkPaid: boolean;
   checkQuote: boolean;
   currentPage: number;
-  showModal: boolean;
+  showCreateBillModal: boolean;
   totalPages: number;
 }
 
@@ -24,7 +24,7 @@ class Purchases extends Component<Props, State> {
       checkPaid: false,
       checkQuote: false,
       currentPage: 1,
-      showModal: true,
+      showCreateBillModal: false,
       totalPages: 10,
     }
   }
@@ -59,6 +59,7 @@ class Purchases extends Component<Props, State> {
               <Button 
                 copy='NUEVA COMPRA'
                 type='terciary'
+                onClick={this.toggleModal}
               />
               <Button 
                 copy='NUEVA COTIZACION'
@@ -78,9 +79,11 @@ class Purchases extends Component<Props, State> {
         </div>
         {/* Create Bill */}
         <Modal
-          show={this.state.showModal}
+          show={this.state.showCreateBillModal}
         >
-          <CreateBill />
+          <CreateBill 
+            toggleModal={this.toggleModal}
+          />
         </Modal> 
       </div>
     );
@@ -91,7 +94,7 @@ class Purchases extends Component<Props, State> {
   }
 
   private readonly toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal });
+    this.setState({ showCreateBillModal: !this.state.showCreateBillModal });
   }
 
   private readonly onChangeQuoteCheckbox = () => {

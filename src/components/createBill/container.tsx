@@ -1,21 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Input, InputBorderBottom } from 'atoms';
 import { BillTable } from 'components';
 import './container.scss';
 
 interface Props {
+  toggleModal(): void; 
 } 
 
-const CreateBill = () => {
-  const { register, handleSubmit } = useForm();
+const CreateBill = (props: Props) => {
+  const { register, handleSubmit, reset, watch, setValue } = useForm();
+  const [ numberOfRows, setNumberOfRows ] = useState(1);
   const onSubmit = (data: any) => console.log(data);
   const header = [
     { name: 'CANTIDAD', width: '15%' },
     { name: 'PRODUCTO', width: '25%' },
     { name: 'DETALLE', width: '40%' },
     { name: 'VALOR TOTAL', width: '30%' },
-  ]
+  ];
+  const calculateTotal = () => {
+    let value = 1;
+    let total = 0;
+    while (value <= numberOfRows) {
+      let currentFieldValue = watch(`total-${value}`);
+      let quantityFieldValue = watch(`quantity-${value}`);
+      if (currentFieldValue) {
+        const quantity = quantityFieldValue ?  parseInt(quantityFieldValue, 10) : 1;
+        total += (parseInt(currentFieldValue, 10) * quantity);
+      }
+      value++;
+    }
+    let otherExpenses = watch('other-expenses');
+    if (otherExpenses) total += parseInt(otherExpenses, 10);
+    // const iva = total * .19;
+    // setValue('iva', iva);
+    return total;
+  }
+
+  const calculateIva = () => {
+    const total = watch('total-value');
+    if (total) return parseFloat(total) * .19;
+    return 0;
+  }
 
   return (
     <div className='create-bills-wrapper'>
@@ -43,6 +69,8 @@ const CreateBill = () => {
               <BillTable 
                 header={header}
                 register={register}
+                numberOfRows={numberOfRows}
+                setNumberOfRows={setNumberOfRows}
               />
             </div>
           </div>
@@ -63,21 +91,23 @@ const CreateBill = () => {
                 </div>
                 <div className='provider-bottom-fields'>
                   <InputBorderBottom 
-                    name='iva'
-                    register={register}
-                    type='number'
-                    showDollarSign={true}
-                  />
-                  <InputBorderBottom 
                     name='other-expenses'
                     register={register}
                     type='number'
                     showDollarSign={true}
                   />
                   <InputBorderBottom 
+                    name='iva'
+                    register={register}
+                    type='number'
+                    showDollarSign={true}
+                    value={calculateIva()}
+                  />
+                  <InputBorderBottom 
                     name='total-value'
                     register={register}
                     type='number'
+                    value={calculateTotal()}
                     showDollarSign={true}
                   />
                 </div>
@@ -87,6 +117,7 @@ const CreateBill = () => {
               <Button 
                 copy='LIMPIAR'
                 type='terciary'
+                onClick={reset}
               />
               <Button 
                 copy='CREAR FACTURA'
@@ -95,6 +126,7 @@ const CreateBill = () => {
               <Button 
                 copy='CANCELAR'
                 type='secondary'
+                onClick={props.toggleModal}
               />
             </div>
           </div>

@@ -11,6 +11,7 @@ interface Props {
   width?: number | string;
   placeholder?: string;
   showDollarSign?: boolean;
+  value?: number;
 }
 
 const InputBorderBottom = (props: Props) => {
@@ -26,6 +27,7 @@ const InputBorderBottom = (props: Props) => {
         name={props.name}
         ref={props.register}
         defaultValue={props.defaultValue}
+        value={props.value}
       />
     </div>
   );
