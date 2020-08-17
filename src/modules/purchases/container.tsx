@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Checkbox, Input, Select } from '../../atoms';
-import { Table } from '../../components';
+import { Table, Modal, CreateBill } from '../../components';
 import { options, header, rows } from './constants';
 
 import './container.scss';
@@ -12,6 +12,7 @@ interface State {
   checkPaid: boolean;
   checkQuote: boolean;
   currentPage: number;
+  showModal: boolean;
   totalPages: number;
 }
 
@@ -23,6 +24,7 @@ class Purchases extends Component<Props, State> {
       checkPaid: false,
       checkQuote: false,
       currentPage: 1,
+      showModal: true,
       totalPages: 10,
     }
   }
@@ -74,12 +76,22 @@ class Purchases extends Component<Props, State> {
             totalPages={this.state.totalPages}
           />
         </div>
+        {/* Create Bill */}
+        <Modal
+          show={this.state.showModal}
+        >
+          <CreateBill />
+        </Modal> 
       </div>
     );
   }
 
   private readonly onChangePaidCheckbox = () => {
     this.setState({ checkPaid: !this.state.checkPaid });
+  }
+
+  private readonly toggleModal = () => {
+    this.setState({ showModal: !this.state.showModal });
   }
 
   private readonly onChangeQuoteCheckbox = () => {

@@ -1,0 +1,108 @@
+@import '../../scss/utilities/variables';
+
+.bill-table {
+  border-collapse: separate;
+  border-radius: 1.5rem;
+  border-spacing: 0 1.5rem;
+  height: inherit;
+  position: relative;
+  width: -webkit-fill-available;
+  .bill-table-header-wrapper {
+    .bill-table-header {
+      .header-element {
+        border: 0;
+        font-size: 1.6rem;
+        font-weight: 500;
+        text-align: left;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .bill-table-body-wrapper {
+    z-index: 100;
+    .row {
+      box-shadow: $card-box-shadow;
+      height: 5rem;
+      .row-element {
+        background-color: white;
+        border: 0;
+        font-size: 1.6rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        &.first-element {
+          padding-left: 3rem;
+        }
+      }
+    }
+  }
+  .add-icon {
+    position: absolute;
+    left: 46%;
+    img {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+  tr {
+    border-bottom-left-radius: 3rem; 
+    border-bottom-right-radius: 3rem;
+    border-top-left-radius: 3rem; 
+    border-top-right-radius: 3rem; 
+    td:first-child { 
+      border-top-left-radius: 3rem; 
+      border-bottom-left-radius: 3rem; 
+    }
+    td:last-child { 
+      border-top-right-radius: 3rem; 
+      border-bottom-right-radius: 3rem;
+    }
+  } 
+}
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .bill-table {
+    height: inherit;
+    position: relative;
+    width: -webkit-fill-available;
+    .bill-table-header-wrapper {
+      .bill-table-header {
+        .header-element {
+          font-size: 1.3rem;
+        }
+      }
+    }
+    .bill-table-body-wrapper {
+      .row {
+        height: 4rem;
+        .row-element {
+          &.first-element {
+            padding-left: 2rem;
+          }
+        }
+      }
+    }
+    .add-icon {
+      position: absolute;
+      left: 46%;
+      margin-bottom: 1rem;
+      img {
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+    }
+    tr {
+      border-bottom-left-radius: 3rem; 
+      border-bottom-right-radius: 3rem;
+      border-top-left-radius: 3rem; 
+      border-top-right-radius: 3rem; 
+      td:first-child { 
+        border-top-left-radius: 3rem; 
+        border-bottom-left-radius: 3rem; 
+      }
+      td:last-child { 
+        border-top-right-radius: 3rem; 
+        border-bottom-right-radius: 3rem;
+      }
+    } 
+  }
+}

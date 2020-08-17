@@ -10,11 +10,13 @@ interface Props {
   type?: 'text' | 'email' | 'password' | 'number';
   width?: number | string;
   placeholder?: string;
+  showDollarSign?: boolean;
 }
 
-const Input = (props: Props) => {
+const InputBorderBottom = (props: Props) => {
   return (
-    <div className='input-personalized-wrapper'>
+    <div className='input-boder-bottom'>
+      { props.showDollarSign ? (<span className='dollar-sign'>$</span>) : null }
       <input 
         className='input-personalized'
         type={props.type ? props.type : 'text'}
@@ -29,4 +31,4 @@ const Input = (props: Props) => {
   );
 }
 
-export default Input;
+export default InputBorderBottom;

@@ -1,0 +1,199 @@
+@import '../../scss/utilities/variables';
+
+.create-bills-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+  padding: 5rem 7rem;
+  width: 100%;
+  .top-form {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    margin-bottom: 3rem;
+    .input-personalized-wrapper {
+      display: inline-block;
+      margin-right: 5rem;
+      .input-personalized {
+        width: 16.5rem;
+        height: 4.2rem;
+      }
+    }
+    .label {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-right: 1rem;
+      text-transform: uppercase;
+    }
+  }
+  .center-content {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100%;
+    width: 100%;
+    .dynamic-form-wrapper {
+      box-shadow: $card-box-shadow;
+      border-radius: 1rem;
+      width: 108.4rem;
+      height: 72.2rem;
+      .dynamic-form {
+        padding: 3rem;
+
+      }
+    }
+    .provider-actions {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      height: 75.4rem;
+      padding: 0 2rem;
+      .provider-form {
+        border-radius: 1rem;
+        box-shadow: $card-box-shadow;
+        display: flex;
+        height: 32.7rem;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        padding: 2rem 0rem 2rem 4rem;
+        width: 36.1rem;
+        .label {
+          font-size: 1.6rem;
+          font-weight: 500;
+          margin-right: 1rem;
+          text-transform: uppercase;
+        }
+        .input-personalized-wrapper {
+          margin-top: 1rem;
+          .input-personalized {
+            height: 3.7rem;
+            width: 28.6rem;
+          }
+        }
+        .provider-bottom-form {
+          display: flex;
+          flex-flow: row nowrap;
+          .label {
+            margin-top: 1rem;
+          }
+          .input-boder-bottom {
+            display: inline-block;
+            margin-top: 1rem;
+          }
+          .provider-bottom-name {
+            display: flex;
+            flex-flow: column nowrap;
+          }
+          .provider-bottom-fields {
+            display: flex;
+            flex-flow: column nowrap;
+          }
+        }
+      }
+      .actions {
+        align-items: center;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        margin-bottom: 7rem;
+        .button-personalized {
+          cursor: pointer;
+          margin-bottom: 1rem;
+          margin-top: 1rem;
+          height: 5.4rem;
+          width: 21.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .create-bills-wrapper {
+    padding: 3rem 4rem;
+    min-height: 60rem;
+    .top-form {
+      margin-bottom: 2rem;
+      .input-personalized-wrapper {
+        margin-right: 5rem;
+        .input-personalized {
+          width: 12.5rem;
+          height: 3.2rem;
+        }
+      }
+      .label {
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin-right: 1rem;
+      }
+    }
+    .center-content {
+      height: 100%;
+      width: 100%;
+      .dynamic-form-wrapper {
+        width: 75rem;
+        height: fit-content;
+        .dynamic-form {
+          padding: 3rem;
+        }
+      }
+      .provider-actions {
+        height: 100%;
+        padding: 0 2rem;
+        .provider-form {
+          height: fit-content;
+          padding: 1rem 0rem 1rem 2rem;
+          width: fit-content;
+          .label {
+            font-size: 1.3rem;
+            font-weight: 600;
+          }
+          .input-personalized-wrapper {
+            margin-top: 1rem;
+            .input-personalized {
+              height: 3rem;
+              width: 23.6rem;
+            }
+          }
+          .provider-bottom-form {
+            margin-top: 1rem;
+            .label {
+              font-size: 1.3rem;
+              margin-top: 1rem;
+            }
+            .input-boder-bottom {
+              margin-top: 1rem;
+              .dollar-sign {
+                font-size: 1.3rem;
+                border-bottom: none;
+              }
+              .input-personalized {
+                font-size: 1.3rem;
+                width: 65%;
+                height: 1.2rem;
+              }
+            }
+            .provider-bottom-name {
+              display: flex;
+              flex-flow: column nowrap;
+            }
+            .provider-bottom-fields {
+              display: flex;
+              flex-flow: column nowrap;
+            }
+          }
+        }
+        .actions {
+          margin-top: 2rem;
+          margin-bottom: 7rem;
+          .button-personalized {
+            font-size: 1.2rem;
+            margin-bottom: .5rem;
+            margin-top: .5rem;
+            height: 3.5rem;
+            width: 13.8rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,9 @@
   left: 0;
   overflow: auto;
   position: absolute;
+  top: 0;
   width: 100vw;
+  z-index: 111;
   .modal-child {
     background-color: white;
     height: fit-content;
