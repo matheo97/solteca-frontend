@@ -7,25 +7,29 @@ interface Props {
   header: Array<{ name: string, width: string }>;
   register: any;
   numberOfRows: number;
+  isQuote: boolean;
   setNumberOfRows(n: number): void;
 };
 
-const BillTable = ({ register, header, numberOfRows, setNumberOfRows }: Props) => { 
+const BillTable = ({ isQuote, register, header, numberOfRows, setNumberOfRows }: Props) => {
+
   const [ rows, addRow ] = useState([
     (
       <tr key={1} className='row'>
         <td className='row-element first-element' key={1}>
-          <InputBorderBottom width={'2.9rem'} name='quantity-1' register={register} />
+          <InputBorderBottom width={'2.9rem'} name='products.quantityField1' register={register} />
         </td>
         <td className='row-element' key={2}>
-          <InputBorderBottom name='product-1' register={register} />
+          <InputBorderBottom name='products.productField1' register={register} />
         </td>
         <td className='row-element' key={3}>
-          <InputBorderBottom name='detail-1' register={register} />
+          <InputBorderBottom name='products.detailField1' register={register} />
         </td>
-        <td className='row-element' key={4}>
-          <InputBorderBottom showDollarSign={true} name='total-1' register={register} />
-        </td>
+        { !isQuote ? (
+          <td className='row-element' key={4}>
+            <InputBorderBottom showDollarSign={true} name='products.totalField1' register={register} />
+          </td>
+        ) : null }
       </tr>
     )
   ]);
@@ -53,17 +57,19 @@ const BillTable = ({ register, header, numberOfRows, setNumberOfRows }: Props) =
     const row = (
       <tr key={numberOfRows + 1} className='row'>
         <td className='row-element first-element' key={1}>
-          <InputBorderBottom width={'2.9rem'} name={`quantity-${numberOfRows + 1}`} register={register} />
+          <InputBorderBottom width={'2.9rem'} name={`products.quantityField${numberOfRows + 1}`} register={register} />
         </td>
         <td className='row-element' key={2}>
-          <InputBorderBottom name={`product-${numberOfRows + 1}`} register={register} />
+          <InputBorderBottom name={`products.productField${numberOfRows + 1}`} register={register} />
         </td>
         <td className='row-element' key={3}>
-          <InputBorderBottom name={`detail-${numberOfRows + 1}`} register={register} />
+          <InputBorderBottom name={`products.detailField${numberOfRows + 1}`} register={register} />
         </td>
-        <td className='row-element' key={4}>
-          <InputBorderBottom showDollarSign={true} name={`total-${numberOfRows + 1}`} register={register} />
-        </td>
+        { !isQuote ? (
+          <td className='row-element' key={4}>
+            <InputBorderBottom showDollarSign={true} name={`products.totalField${numberOfRows + 1}`} register={register} />
+          </td>
+        ) : null }
       </tr>
     );
     addRow([ ...rows, row ]);

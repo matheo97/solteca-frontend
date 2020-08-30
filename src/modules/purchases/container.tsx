@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Checkbox, Input, Select } from '../../atoms';
-import { Table, Modal, CreateBill } from '../../components';
+import { Table, Modal, Bill } from '../../components';
 import { options, header, rows } from './constants';
 
 import './container.scss';
@@ -12,8 +12,11 @@ interface State {
   checkPaid: boolean;
   checkQuote: boolean;
   currentPage: number;
-  showCreateBillModal: boolean;
+  showBill: boolean;
   totalPages: number;
+  type: 'purchase' | 'sells';
+  isQuote: boolean;
+  action: 'create' | 'edit' | 'show';
 }
 
 class Purchases extends Component<Props, State> {
@@ -24,8 +27,11 @@ class Purchases extends Component<Props, State> {
       checkPaid: false,
       checkQuote: false,
       currentPage: 1,
-      showCreateBillModal: false,
+      showBill: false,
       totalPages: 10,
+      type: 'purchase',
+      action: 'create',
+      isQuote: false,
     }
   }
 
@@ -59,11 +65,12 @@ class Purchases extends Component<Props, State> {
               <Button 
                 copy='NUEVA COMPRA'
                 type='terciary'
-                onClick={this.toggleModal}
+                onClick={() => this.showModal('purchase', 'create', false)}
               />
               <Button 
                 copy='NUEVA COTIZACION'
                 type='primary'
+                onClick={() => this.showModal('purchase', 'create', true)}
               />
             </div>
           </div>
@@ -77,12 +84,17 @@ class Purchases extends Component<Props, State> {
             totalPages={this.state.totalPages}
           />
         </div>
-        {/* Create Bill */}
+        
+        {/* All Bill and Quote actions */}
         <Modal
-          show={this.state.showCreateBillModal}
+          show={this.state.showBill}
         >
-          <CreateBill 
-            toggleModal={this.toggleModal}
+          <Bill 
+            hideModal={this.hideModal}
+            type={this.state.type}
+            action={this.state.action}
+            isQuote={this.state.isQuote}
+            showModal={this.showModal}
           />
         </Modal> 
       </div>
@@ -93,8 +105,21 @@ class Purchases extends Component<Props, State> {
     this.setState({ checkPaid: !this.state.checkPaid });
   }
 
-  private readonly toggleModal = () => {
-    this.setState({ showCreateBillModal: !this.state.showCreateBillModal });
+  private readonly showModal = (
+    type: 'purchase' | 'sells', 
+    action: 'create' | 'edit' | 'show',
+    isQuote: boolean,
+    ) => {
+    this.setState({ 
+      showBill: true, 
+      type,
+      action,
+      isQuote,
+    });
+  }
+
+  private readonly hideModal = () => {
+    this.setState({ showBill: false });
   }
 
   private readonly onChangeQuoteCheckbox = () => {
