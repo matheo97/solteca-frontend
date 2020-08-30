@@ -1,0 +1,41 @@
+@import '../../scss/utilities/variables';
+
+.action-col {
+  cursor: pointer;
+  padding-left: 3rem;
+  .actions {
+    position: absolute;
+    .actions-container {
+      background-color: white;
+      box-shadow: $card-box-shadow;
+      height: 10.9rem;
+      left: -11rem;
+      overflow: visible;
+      padding: 1.5rem 1rem 1.5rem 1rem;
+      position: absolute;
+      top: 1rem;
+      width: 16.7rem;
+      .arrow-up { 
+        border-left: 17px solid transparent;
+        border-right: 17px solid transparent;
+        border-bottom: 20px solid white;
+        height: 0;
+        position: absolute;
+        right: 1.65rem;
+        top: -1.6rem;
+        width: 0; 
+      }
+      .action-element {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        margin-bottom: .5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .action-col {
+    padding-left: 1.8rem;
+  }
+}

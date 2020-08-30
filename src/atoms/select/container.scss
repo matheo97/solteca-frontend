@@ -1,0 +1,64 @@
+@import '../../scss/utilities/variables';
+
+.select-container {
+  align-items: center;
+  background-color: white;
+  border-radius: 3rem;
+  box-shadow: 0 1.3rem 6.5rem -1.3rem $blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20rem;
+  z-index: 110;
+  .default-option {
+    cursor: pointer;
+    span {
+      font-size: 1.4rem;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    img {
+      display: inline-block;
+      transform: translateX(.8rem);
+    }
+  }
+  .options {
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    hr { 
+      border-style: inset;
+      border-width: .1rem;
+      display: block;
+      margin-bottom: 0.5em;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0.5em;
+    } 
+    .option {
+      margin-top: 1.7rem;
+      width: 100%;
+      &:hover {
+        opacity: .5;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .select-container {
+    width: 18rem;
+    .default-option {
+      span {
+        font-size: 1.2rem;
+      }
+    }
+    .options {
+      font-size: 1.2rem;
+      .option {
+        margin-top: 1.2rem;
+      }
+    }
+  }
+}

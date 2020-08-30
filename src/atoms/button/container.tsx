@@ -13,7 +13,7 @@ const Button = (props: Props) => {
   return (
     <button 
       className={`button-personalized ${props.type}`}
-      style={{ width: props.width, height: props.height }}
+      style={{ width: `${props.width}rem`, height: `${props.height}rem` }}
       onClick={props.onClick}
     >
       {props.copy}

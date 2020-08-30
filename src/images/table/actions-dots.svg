@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="12" viewBox="0 0 46 12">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_137" data-name="Rectangle 137" width="46" height="12" transform="translate(1368.773 393.159)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_45" data-name="Mask Group 45" transform="translate(-1368.773 -393.159)" clip-path="url(#clip-path)">
+    <g id="more" transform="translate(1369 393.555)">
+      <circle id="Ellipse_73" data-name="Ellipse 73" cx="5.524" cy="5.524" r="5.524" fill="#7383bf"/>
+      <circle id="Ellipse_74" data-name="Ellipse 74" cx="5.524" cy="5.524" r="5.524" transform="translate(34.725)" fill="#7383bf"/>
+      <circle id="Ellipse_75" data-name="Ellipse 75" cx="5.524" cy="5.524" r="5.524" transform="translate(17.362)" fill="#7383bf"/>
+      <circle id="Ellipse_76" data-name="Ellipse 76" cx="5.524" cy="5.524" r="5.524" fill="#7383bf"/>
+      <circle id="Ellipse_77" data-name="Ellipse 77" cx="5.524" cy="5.524" r="5.524" transform="translate(34.725)" fill="#7383bf"/>
+      <circle id="Ellipse_78" data-name="Ellipse 78" cx="5.524" cy="5.524" r="5.524" transform="translate(17.362)" fill="#7383bf"/>
+    </g>
+  </g>
+</svg>
