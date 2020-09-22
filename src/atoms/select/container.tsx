@@ -6,6 +6,7 @@ import './container.scss';
 interface Props {
   defaultOption: string;
   options: Array<{ value: string, copy: string }>;
+  setValueOutside?(value: string): void; 
 }
 
 interface State {
@@ -22,6 +23,13 @@ class Select extends Component<Props, State> {
       selectedValue: '',
       showOptions: false,
     }
+  }
+
+  componentWillMount = () => {
+    if (this.props.setValueOutside) {
+      const value = this.props.options.filter((option) => option.copy === this.props.defaultOption)[0].value;
+      this.props.setValueOutside(value);
+    } 
   }
 
   render() {
@@ -77,6 +85,7 @@ class Select extends Component<Props, State> {
       selectedOption: this.props.options.filter((option) => option.value === value)[0].copy,
       showOptions: false,
     });
+    if (this.props.setValueOutside) this.props.setValueOutside(value);
   }
 };
 

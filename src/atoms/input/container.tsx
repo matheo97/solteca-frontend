@@ -2,28 +2,30 @@ import React from 'react';
 import './container.scss';
 
 interface Props {
-  name?: string;
   defaultValue?: string;
-  register?: any;
-  onChange?(): void; 
   height?: number | string;
+  label?: string; 
+  name?: string;
+  placeholder?: string;
+  register?: any;
   type?: 'text' | 'email' | 'password' | 'number';
   width?: number | string;
-  placeholder?: string;
+  onChange?(): void;
 }
 
 const Input = (props: Props) => {
   return (
     <div className='input-personalized-wrapper'>
+      { props.label ? <p className={'label'}>{props.label}</p> : null }
       <input 
         className='input-personalized'
-        type={props.type ? props.type : 'text'}
-        style={{ width: props.width, height: props.height }}
+        defaultValue={props.defaultValue}
+        name={props.name}
         onChange={props.onChange}
         placeholder={props.placeholder}
-        name={props.name}
         ref={props.register}
-        defaultValue={props.defaultValue}
+        style={{ width: props.width, height: props.height }}
+        type={props.type ? props.type : 'text'}
       />
     </div>
   );

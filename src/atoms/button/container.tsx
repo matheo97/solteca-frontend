@@ -2,19 +2,24 @@ import React from 'react';
 import './container.scss';
 
 interface Props {
+  buttonType?: 'button' | 'submit' | 'reset' | undefined;
   copy: string;
-  onClick?(): void;
-  type: 'primary' | 'secondary' | 'terciary';
   height?: number;
+  type: 'primary' | 'secondary' | 'terciary';
   width?: number;
+  onClick?(): void;
 }
 
-const Button = (props: Props) => {
+const Button = ({
+  buttonType = 'button',
+  ...props
+}: Props) => {
   return (
     <button 
       className={`button-personalized ${props.type}`}
-      style={{ width: `${props.width}rem`, height: `${props.height}rem` }}
       onClick={props.onClick}
+      style={{ width: `${props.width}rem`, height: `${props.height}rem` }}
+      type={buttonType}
     >
       {props.copy}
     </button>

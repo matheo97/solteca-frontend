@@ -1,0 +1,31 @@
+@import '../../scss/utilities/variables';
+
+.modal-child {
+  .confimation-modal {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 7rem 10rem;
+    .central-message {
+      align-items: center;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      margin-bottom: 6rem;
+      img {
+        height: 12rem;
+        margin-bottom: 6rem;
+        text-align: center;
+        width: 12rem;
+      }
+      .message {
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+    }
+    .actions {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+    }
+  }
+}
