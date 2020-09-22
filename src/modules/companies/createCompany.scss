@@ -1,0 +1,59 @@
+@import '../../scss/utilities/variables';
+
+.modal-child {
+  .form {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 7rem 10rem;
+    form {
+      width: 100%;
+      input {
+        height: 3.7rem;
+        margin-bottom: 3rem;
+        width: 100%;
+      }
+      .file {
+        align-items: center;
+        display: flex;
+        flex-flow: row nowrap;
+        margin-bottom: 6rem;
+        .file-name {
+          display: inline-block;
+          font-size: 1.5rem;
+          font-weight: 500;
+          margin-left: 2rem;
+        }
+        .upload-file-manually {
+          align-items: center;
+          background-color: #53e198;
+          border-radius: 3rem;
+          color: white;
+          cursor: pointer;
+          display: flex;
+          font-size: 1.4rem;
+          font-weight: 400;
+          flex-direction: column;
+          height: 3.6rem;
+          justify-content: center;
+          position: relative;
+          text-transform: uppercase;
+          width: 11.5rem;
+          .upload-icon {
+            position: absolute;
+            left: .9rem;
+            top: 1rem;
+          }
+          label {
+            cursor: pointer;
+            margin-left: 2rem;
+          }
+        }
+      }
+      .actions {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+      }
+    }
+  }
+}

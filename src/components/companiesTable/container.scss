@@ -1,0 +1,151 @@
+@import '../../scss/utilities/variables';
+
+.table {
+  border-collapse: separate;
+  border-radius: 1.5rem;
+  border-spacing: 0 1.5rem;
+  height: inherit;
+  position: relative;
+  width: -webkit-fill-available;
+  .table-header-wrapper {
+    .table-header {
+      .header-element {
+        border: 0;
+        font-size: 2rem;
+        font-weight: 500;
+        text-align: left;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .table-body-wrapper {
+    z-index: 100;
+    .row {
+      height: 5rem;
+      &.green {
+        background-color: $green;
+      }
+      &.red {
+        background-color: $red;
+      }
+      &.white {
+        box-shadow: -.1rem .2rem 5.8rem -2.2rem $blue;
+        border-radius: 30rem;
+      }
+      .row-element {
+        border: 0;
+        font-size: 1.8rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        &.first-element {
+          padding-left: 3rem;
+        }
+      }
+      .row-actions-wrapper {
+        height: fit-content;
+        transform: translateX(-3rem);
+        width: fit-content;
+        .row-actions {
+          display: flex;
+          flex-direction: row;
+          .edit {
+            height: 2.5rem;
+            margin-right: 1rem;
+            transform: translateY(.3rem);
+            width: 2.5rem;
+          }
+          .contacts {
+            margin-right: 1.5rem;
+            img {
+              height: 2.6rem;
+              width: 2.6rem;
+            }
+          }
+          .delete {
+            margin-right: 1rem;
+            transform: translateY(.3rem);
+            img {
+              height: 2.2rem;
+              width: 2.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  tr {
+    cursor: pointer;
+    td:first-child { 
+      border-top-left-radius: 3rem; 
+      border-bottom-left-radius: 3rem; 
+    }
+    td:last-child { 
+      border-top-right-radius: 3rem; 
+      border-bottom-right-radius: 3rem;
+    }
+  } 
+  .pagination-wrapper {
+    bottom: -6.2rem;
+    position: absolute;
+    right: 0;
+    width: max-content;
+    z-index: 10;
+    .square-fill {
+      &.pagination {
+        ul {
+          a {
+            border-radius: 2rem;
+            font-size: 1.4rem;
+            &:first-of-type, &:last-of-type {
+              background-color: $blue;
+            }
+          }
+          .is-active {
+            background-color: $blue;
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-desktop-1080p) {
+  .table {
+    border-spacing: 0 1.5rem;
+    .table-header-wrapper {
+      .table-header {
+        .header-element {
+          font-size: 1.7rem;
+        }
+      }
+    }
+    .table-body-wrapper {
+      .row {
+        height: 4.5rem;
+        .row-element {
+          font-size: 1.5rem;
+          &.first-element {
+            padding-left: 2.5rem;
+          }
+        }
+      }
+    }
+    .pagination-wrapper {
+      .square-fill {
+        &.pagination {
+          ul {
+            a {
+              font-size: 1.3rem;
+            }
+            .is-active {
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

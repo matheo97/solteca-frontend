@@ -1,7 +1,7 @@
 import dashboard from '../../../images/sideBar/dashboard.svg';
 import purchases from '../../../images/sideBar/purchases.svg';
 import sales from '../../../images/sideBar/sales.svg';
-import customers from '../../../images/sideBar/customers.svg';
+import companies from '../../../images/sideBar/customers.svg';
 import taxes from '../../../images/sideBar/taxes.svg';
 
 export interface Item {
@@ -27,9 +27,9 @@ const items: Item[] = [
     key: 'ventas',
   },
   {
-    label: 'clientes',
-    icon: customers,
-    key: 'clientes',
+    label: 'empresas',
+    icon: companies,
+    key: 'companies',
   },
   {
     label: 'impuestos',

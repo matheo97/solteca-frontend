@@ -38,7 +38,8 @@ const SoltecaRouter = () => (
   <Router history={history}>
     <App history={history}>
       <Switch>
-        <Route path='/clientes' component={modules.Customers} />
+        <Route path='/companies/contacts' component={modules.Contacts} />
+        <Route path='/companies' component={modules.Companies} />
         <Route path='/dashboard' component={modules.Dasboard} />
         <Route path='/compras' component={modules.Purchases} />
         <Route path='/ventas' component={modules.Sales} />
