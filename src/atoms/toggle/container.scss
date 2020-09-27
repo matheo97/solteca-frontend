@@ -1,0 +1,39 @@
+.toggle-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 5.3rem;
+  width: 35.3rem;
+  .toggle {
+    background-color: #FC3554;
+    border-radius: 3rem;
+    height: 4.5rem;
+    margin-right: 3rem;
+    position: relative;
+    transform: translateY(.7rem);
+    width: 8.4rem;
+    &.green {
+      background-color: #4EAA52;
+    }
+    .toggle-circle {
+      background-color: white;
+      box-shadow: 1rem 0 5rem 0 rgba(52, 131, 224, 0.2);
+      border-radius: 3rem;
+      height: 4.5rem;
+      left: 0;
+      position: absolute;
+      transition: left .25s linear;
+      width: 4.5rem;
+      &.right {
+        left: 4.2rem;
+      }
+    }
+  }
+  .toggle-copy {
+    color: #FC3554;
+    font-size: 4.3rem;
+    font-weight: bold;
+    &.green {
+      color: #4EAA52;
+    }
+  }
+}

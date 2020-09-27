@@ -1,0 +1,41 @@
+@import '../../scss/utilities/variables';
+
+.taxes-wrapper {
+  .top-actions {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 1%;
+    padding: 5rem 12rem 0 12rem;
+    width: 100%;
+    .select-container {
+      width: 23rem;
+    }
+    .button-personalized {
+      height: 5rem;
+      width: 21.2rem;
+    }
+  }
+  .taxes-content {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 2rem 34rem;
+    .cards {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      margin-bottom: 3%;
+    }
+    .table-wrapper {
+      align-items: center;
+      border-radius: 1rem;
+      box-shadow: 1rem 0 5rem 0 rgba(52, 131, 224, 0.2);
+      display: flex;
+      height: inherit;
+      justify-content: center;
+      margin: 0;
+      padding: 3rem 4.4rem 6rem 4.4rem;
+      width: auto;
+    }
+  }
+}

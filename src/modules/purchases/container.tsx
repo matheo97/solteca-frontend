@@ -81,6 +81,7 @@ class Purchases extends Component<Props, State> {
             rows={rows}
             changeCurrentPage={this.changeCurrentPage}
             currentPage={this.state.currentPage}
+            showActionsColumn={true}
             totalPages={this.state.totalPages}
           />
         </div>
