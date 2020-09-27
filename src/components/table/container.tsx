@@ -9,6 +9,7 @@ interface Props {
   currentPage: number;
   header: Array<{ name: string, width: string }>;
   rows: Array<any>;
+  showActionsColumn: boolean;
   totalPages: number;
   changeCurrentPage(nextPage: number): void;
 };
@@ -53,7 +54,7 @@ class Table extends Component<Props, State> {
                   className={`row-element ${index === 0 ? 'first-element' : ''}`} 
                   key={index}
                 >
-                  { key === 'paid' ? (
+                  { key === 'paid' && this.props.showActionsColumn ? (
                       <ActionCol 
                         paid={row[key]}
                       /> 
