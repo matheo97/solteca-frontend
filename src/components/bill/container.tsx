@@ -66,13 +66,13 @@ const Bill = ({ isQuote, type, action, selectedBill, showModal, hideModal }: Pro
       value++;
     }
     let otherExpenses = watch('otherExpenses');
-    if (otherExpenses) total += parseInt(otherExpenses, 10);
+    if (otherExpenses) total += parseInt((otherExpenses as any), 10);
     return total;
   }
 
   const calculateIva = () => {
     const total = watch('totalValue');
-    if (total) return parseFloat(total) * .19;
+    if (total) return parseFloat((total as any)) * .19;
     return 0;
   }
 

@@ -5,4 +5,7 @@
 /build
 /dist
 
+# local files
+.env
+
 npm-debug.log*
