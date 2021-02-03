@@ -1,6 +1,6 @@
-import { Empty } from "antd";
+import { Empty } from 'antd';
 
-declare namespace Parking {
+declare namespace Solteca {
   export interface CustomWindow extends Window {
     analytics?: {
       page(url: string): void;

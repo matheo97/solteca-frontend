@@ -60,7 +60,6 @@
     "@types/react-router-dom": "*",
     "@types/request-promise": "^4.1.45",
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "prettier": "^2.2.1",
     "svg-inline-loader": "^0.8.2",
