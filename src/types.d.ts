@@ -45,15 +45,14 @@ declare namespace Solteca {
     getOut?: string;
     total?: number;
   }
-  export interface Price {
-    type: string;
-    base: number;
-    perHour: number;
-    discounts: {
-      gas?: number;
-      hybrid?: number;
-      electric?: number;
-    };
+  export interface Company {
+    id: string;
+    plate: string;
+    fuel: 'Gas' | 'Hybrid' | 'Electric';
+    plan: number;
+    getIn: string;
+    getOut?: string;
+    total?: number;
   }
   export interface Slot {
     id: string;
@@ -68,7 +67,6 @@ declare namespace Solteca {
   }
   export interface FullState {
     tickets: TicketsState;
-    prices: PricesState;
   }
   export interface EmptyState {
     tickets: unknown;
@@ -83,9 +81,6 @@ declare namespace Solteca {
   export interface TicketsState {
     activeTickets: Ticket[];
     oldTickets: Ticket[];
-  }
-  export interface PricesState {
-    prices: Price[];
   }
 }
 

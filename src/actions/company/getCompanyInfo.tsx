@@ -7,9 +7,14 @@ const getCompanyInfo = () => async (
 ): Promise<void> => {
   try {
     const { data } = await api.get('/company/getInfo');
+    console.log('data', data);
     dispatch({
       type: GET_INFO,
-      payload: data,
+      payload: {
+        ...data,
+        moneyOwned: data.moneyOwned[0]?.total,
+        moneyOwnedToUs: data.moneyOwnedToUs[0]?.total,
+      },
     });
   } catch (error) {
     console.error(error);

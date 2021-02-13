@@ -13,6 +13,8 @@ import Solteca from 'types';
 
 import './container.scss';
 interface Props {
+  moneyOwnedToUs: string;
+  moneyOwned: string;
   getCompanyInfo(): void;
 }
 
@@ -60,13 +62,13 @@ class Dashboard extends PureComponent<Props, State> {
           <Card
             icon={bankrupt}
             title="total adeudado a la fecha"
-            value={'13.000.000'}
+            value={this.props.moneyOwned}
             color={'red'}
           />
           <Card
             icon={earnings}
             title="dinero que nos deben a la fecha"
-            value={'33.000.000'}
+            value={this.props.moneyOwnedToUs}
             color={'green'}
           />
           <Card
@@ -95,8 +97,8 @@ class Dashboard extends PureComponent<Props, State> {
 }
 
 const mapStateToProps = (state: Solteca.FullState) => ({
-  activeTickets: state.tickets.activeTickets,
-  oldTickets: state.tickets.oldTickets,
+  moneyOwnedToUs: state.company.moneyOwnedToUs,
+  moneyOwned: state.company.moneyOwned,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
