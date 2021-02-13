@@ -13,8 +13,8 @@ import Solteca from 'types';
 
 import './container.scss';
 interface Props {
-  moneyOwnedToUs: string;
-  moneyOwned: string;
+  moneyOwnedToUs: number;
+  moneyOwned: number;
   getCompanyInfo(): void;
 }
 
@@ -62,13 +62,13 @@ class Dashboard extends PureComponent<Props, State> {
           <Card
             icon={bankrupt}
             title="total adeudado a la fecha"
-            value={this.props.moneyOwned}
+            value={this.props.moneyOwned + ''}
             color={'red'}
           />
           <Card
             icon={earnings}
             title="dinero que nos deben a la fecha"
-            value={this.props.moneyOwnedToUs}
+            value={this.props.moneyOwnedToUs + ''}
             color={'green'}
           />
           <Card

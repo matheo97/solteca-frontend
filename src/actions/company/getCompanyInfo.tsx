@@ -1,19 +1,16 @@
 import { AnyAction } from 'redux';
 import { GET_INFO } from '../../shared/constants/actions';
-import api from '../../api';
+import { companyService } from '../../services/company';
 
 const getCompanyInfo = () => async (
   dispatch: (x: AnyAction | {}) => void
 ): Promise<void> => {
   try {
-    const { data } = await api.get('/company/getInfo');
-    console.log('data', data);
+    const companyInfo = await companyService.getCompanyInfo();
     dispatch({
       type: GET_INFO,
       payload: {
-        ...data,
-        moneyOwned: data.moneyOwned[0]?.total,
-        moneyOwnedToUs: data.moneyOwnedToUs[0]?.total,
+        ...companyInfo,
       },
     });
   } catch (error) {

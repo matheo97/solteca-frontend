@@ -1,4 +1,4 @@
-import { Empty } from 'antd';
+import { CompanyInfo } from 'services/api';
 
 declare namespace Solteca {
   export interface CustomWindow extends Window {
@@ -36,6 +36,26 @@ declare namespace Solteca {
   export interface StoreWindow extends Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
   }
+  export interface Action {
+    type: string;
+    payload: FullState;
+  }
+  export interface FullState {
+    tickets: TicketsState;
+    company: CompanyState;
+  }
+  export interface EmptyState {
+    tickets: unknown;
+    company: unknown;
+  }
+  export interface AllReducersTypes {
+    tickets: TicketsState | undefined | Reducer<unknown, any>;
+    company: CompanyState | undefined | Reducer<unknown, any>;
+  }
+  export interface TicketsState {
+    activeTickets: Ticket[];
+    oldTickets: Ticket[];
+  }
   export interface Ticket {
     id: string;
     plate: string;
@@ -45,43 +65,8 @@ declare namespace Solteca {
     getOut?: string;
     total?: number;
   }
-  export interface Company {
-    id: string;
-    plate: string;
-    fuel: 'Gas' | 'Hybrid' | 'Electric';
-    plan: number;
-    getIn: string;
-    getOut?: string;
-    total?: number;
-  }
-  export interface Slot {
-    id: string;
-    occupied: boolean;
-  }
-  export interface MotorPark {
-    revenue: number;
-    slots: SlotObject;
-  }
-  export interface SlotObject {
-    [key: string]: Slot;
-  }
-  export interface FullState {
-    tickets: TicketsState;
-  }
-  export interface EmptyState {
-    tickets: unknown;
-  }
-  export interface Action {
-    type: string;
-    payload: FullState;
-  }
-  export interface AllReducersTypes {
-    tickets: TicketsState | undefined | Reducer<unknown, any>;
-  }
-  export interface TicketsState {
-    activeTickets: Ticket[];
-    oldTickets: Ticket[];
-  }
+
+  export interface CompanyState extends CompanyInfo {}
 }
 
-export default Parking;
+export default Solteca;
