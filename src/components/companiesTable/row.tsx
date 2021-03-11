@@ -15,91 +15,88 @@ interface Props extends RouteComponentProps {
   showDeleteModal(): void;
 }
 
-const Row = ({ row, index, showContactsIcon, showDeleteModal, history }: Props) => {
+const Row = ({
+  row,
+  index,
+  showContactsIcon,
+  showDeleteModal,
+  history,
+}: Props) => {
   const companyId = 'Hello World!';
-  const [ editable, setEditable] = useState(false);
-  const [ fieldValues, setFieldValues] = useState({
+  const [editable, setEditable] = useState(false);
+  const [fieldValues, setFieldValues] = useState({
     ...row,
     actions: null,
   });
 
-  const edit = useCallback(() => { 
+  const edit = useCallback(() => {
     setEditable(!editable);
   }, [editable]);
 
-  const onSave = useCallback(() => { 
+  const onSave = useCallback(() => {
     // call action that should send data to backend and update store
     console.log('fieldValues', fieldValues);
     setEditable(false);
   }, [fieldValues]);
 
-  const onChange = useCallback((event: ChangeEvent<HTMLInputElement>) => { 
-    const { value } = event?.target;
-    const { name } = event?.target;
+  const onChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const { value } = event?.target;
+      const { name } = event?.target;
 
-    setFieldValues({
-      ...fieldValues,
-      [name]: value
-    });
-  }, [fieldValues]);
+      setFieldValues({
+        ...fieldValues,
+        [name]: value,
+      });
+    },
+    [fieldValues]
+  );
 
   return (
-      <tr 
-        key={index} 
-        className={'row white'}
-      >
-          {
-            Object.keys(row).map((key: string, index: number) => (
-              <td 
-                className={`row-element ${index === 0 ? 'first-element' : ''}`} 
-                key={index}
-              >
-                { key === 'selfWithholdingTaxes' ? (
-                    'Si'
-                  ) : (
-                    editable && key !== 'actions' ? (
-                      <InputBorderBottom name={key} onChange={onChange} value={fieldValues[key]} />
-                    ) : (
-                      row[key]
-                    )
-                  )
-                }
-              </td>
-            ))
-          }
-          <td 
-            className={'row-actions-wrapper'} 
-            key={index}
-          >
-            <div className={'row-actions'} >
-              <div className='edit' onClick={editable ? onSave : edit }>
-                {
-                  editable ? (
-                    <img src={pencilActiveIcon} alt='' />
-                  ) : (
-                    <img src={pencilIcon} alt=''/>
-                  )
-                }
-              </div>
-              {
-                showContactsIcon ? (
-                  <div className='contacts' onClick={() => history.push({
-                    pathname: '/companies/contacts',
-                    state: { companyId }
-                  })}>
-                    <img src={contactsIcon} alt=''/>
-                  </div>
-                ) : (
-                  null
-                )
+    <tr key={index} className={'row white'}>
+      {Object.keys(row).map((key: string, index: number) => (
+        <td
+          className={`row-element ${index === 0 ? 'first-element' : ''}`}
+          key={index}
+        >
+          {key === 'selfWithholdingTaxes' ? (
+            'Si'
+          ) : editable && key !== 'actions' ? (
+            <InputBorderBottom name={key} onChange={onChange} />
+          ) : (
+            row[key]
+          )}
+        </td>
+      ))}
+      <td className={'row-actions-wrapper'} key={index}>
+        <div className={'row-actions'}>
+          <div className="edit" onClick={editable ? onSave : edit}>
+            {editable ? (
+              <img src={pencilActiveIcon} alt="" />
+            ) : (
+              <img src={pencilIcon} alt="" />
+            )}
+          </div>
+          {showContactsIcon ? (
+            <div
+              className="contacts"
+              onClick={() =>
+                history.push({
+                  pathname: '/companies/contacts',
+                  state: { companyId },
+                })
               }
-              <div className='delete' onClick={() => showDeleteModal()}>
-                <img src={deleteIcon} alt=''/>
-              </div>
+            >
+              <img src={contactsIcon} alt="" />
             </div>
-          </td>
-      </tr>
+          ) : null}
+          <div className="delete" onClick={() => showDeleteModal()}>
+            <img src={deleteIcon} alt="" />
+          </div>
+        </div>
+      </td>
+    </tr>
   );
 };
 
-export default withRouter (Row);
+export default withRouter(Row);

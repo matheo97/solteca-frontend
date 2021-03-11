@@ -12,6 +12,15 @@ export class CompanyService {
       throw new Error(e);
     }
   }
+
+  async getCompaniesByName(): Promise<CompanyInfo> {
+    try {
+      const { data } = await axios.get<CompanyInfo>(`${this.url}/getInfo`);
+      return data;
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
 }
 
 export const companyService = new CompanyService();

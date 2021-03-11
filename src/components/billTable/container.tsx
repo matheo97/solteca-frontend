@@ -1,92 +1,127 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent } from 'react';
 import addIcon from '../../images/bill-table/add-icon.svg';
 import { InputBorderBottom } from 'atoms';
+import { Controller } from 'react-hook-form';
+
 import './container.scss';
+import { moneyFormatter } from 'shared/utils/moneyFormatter';
 
 interface Props {
-  header: Array<{ name: string, width: string }>;
-  register: any;
-  numberOfRows: number;
+  header: Array<{ name: string; width: string }>;
   isQuote: boolean;
-  setNumberOfRows(n: number): void;
-};
+  calculateTotalAndIva: any;
+  control: any;
+  fields: any;
+  append: any;
+}
 
-const BillTable = ({ isQuote, register, header, numberOfRows, setNumberOfRows }: Props) => {
-
-  const [ rows, addRow ] = useState([
-    (
-      <tr key={1} className='row'>
-        <td className='row-element first-element' key={1}>
-          <InputBorderBottom width={'2.9rem'} name='products.quantityField1' register={register} />
-        </td>
-        <td className='row-element' key={2}>
-          <InputBorderBottom name='products.productField1' register={register} />
-        </td>
-        <td className='row-element' key={3}>
-          <InputBorderBottom name='products.detailField1' register={register} />
-        </td>
-        { !isQuote ? (
-          <td className='row-element' key={4}>
-            <InputBorderBottom showDollarSign={true} name='products.totalField1' register={register} />
-          </td>
-        ) : null }
-      </tr>
-    )
-  ]);
-
-
-  const createHeader = (header: Array<{ name: string, width: string }>) => (
-    <thead className='bill-table-header-wrapper'>
-      <tr className='bill-table-header'>
-        {
-          header.map((element: { name: string, width: string }, index: number) => (
-            <th 
-              key={index} 
+const BillTable = ({
+  isQuote,
+  header,
+  control,
+  fields,
+  append,
+  calculateTotalAndIva,
+}: Props) => {
+  const createHeader = (header: Array<{ name: string; width: string }>) => (
+    <thead className="bill-table-header-wrapper">
+      <tr className="bill-table-header">
+        {header.map(
+          (element: { name: string; width: string }, index: number) => (
+            <th
+              key={index}
               style={{ width: element.width }}
-              className='header-element'
+              className="header-element"
             >
               {element.name}
             </th>
-          ))
-        }
+          )
+        )}
       </tr>
     </thead>
   );
-  
-  const addRowProcess = () => {
-    const row = (
-      <tr key={numberOfRows + 1} className='row'>
-        <td className='row-element first-element' key={1}>
-          <InputBorderBottom width={'2.9rem'} name={`products.quantityField${numberOfRows + 1}`} register={register} />
-        </td>
-        <td className='row-element' key={2}>
-          <InputBorderBottom name={`products.productField${numberOfRows + 1}`} register={register} />
-        </td>
-        <td className='row-element' key={3}>
-          <InputBorderBottom name={`products.detailField${numberOfRows + 1}`} register={register} />
-        </td>
-        { !isQuote ? (
-          <td className='row-element' key={4}>
-            <InputBorderBottom showDollarSign={true} name={`products.totalField${numberOfRows + 1}`} register={register} />
-          </td>
-        ) : null }
-      </tr>
-    );
-    addRow([ ...rows, row ]);
-    setNumberOfRows(numberOfRows + 1);
-  };
-
   return (
-    <table className='bill-table'>
+    <table className="bill-table">
       {createHeader(header)}
-      <tbody className='bill-table-body-wrapper'>
-        { rows }
+      <tbody className="bill-table-body-wrapper">
+        {fields.map((item: any, index: number) => (
+          <tr key={item.id} className="row">
+            <td className="row-element first-element" key={1}>
+              <Controller
+                name={`products[${index}].quantityField`}
+                control={control}
+                defaultValue={item.quantityField}
+                render={({ onChange, name, value }) => (
+                  <InputBorderBottom
+                    name={name}
+                    value={value}
+                    width={'2.9rem'}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                      onChange(e);
+                      calculateTotalAndIva();
+                    }}
+                  />
+                )}
+              />
+            </td>
+            <td className="row-element" key={2}>
+              <Controller
+                name={`products[${index}].productField`}
+                control={control}
+                defaultValue={item.productField}
+                render={({ name, value }) => (
+                  <InputBorderBottom name={name} value={value} />
+                )}
+              />
+            </td>
+            <td className="row-element" key={3}>
+              <Controller
+                name={`products[${index}].detailField`}
+                control={control}
+                defaultValue={item.detailField}
+                render={({ name, value }) => (
+                  <InputBorderBottom name={name} value={value} />
+                )}
+              />
+            </td>
+            {!isQuote ? (
+              <td className="row-element" key={4}>
+                <Controller
+                  name={`products[${index}].totalField`}
+                  control={control}
+                  defaultValue={item.totalField}
+                  render={({ onChange, name, value }) => (
+                    <InputBorderBottom
+                      name={name}
+                      showDollarSign={true}
+                      value={value}
+                      onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        onChange(e);
+                        calculateTotalAndIva();
+                      }}
+                    />
+                  )}
+                />
+              </td>
+            ) : null}
+          </tr>
+        ))}
       </tbody>
-      <div className='add-icon' onClick={addRowProcess}>
-        <img src={addIcon} alt=''/>
+      <div
+        className="add-icon"
+        onClick={() =>
+          append({
+            quantityField: 1,
+            productField: null,
+            detailField: null,
+            totalField: null,
+          })
+        }
+      >
+        <img src={addIcon} alt="" />
       </div>
     </table>
   );
-}
+};
 
 export default BillTable;
