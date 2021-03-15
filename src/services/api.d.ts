@@ -581,6 +581,25 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * No description
      *
      * @tags Company
+     * @name CompanyControllerGetCompaniesByName
+     * @summary Get all info of Companies by name
+     * @request GET:/company/getCompaniesByName
+     * @secure
+     */
+    companyControllerGetCompaniesByName: (query: { name: string; type: string }, params: RequestParams = {}) =>
+      this.request<Company[], any>({
+        path: `/company/getCompaniesByName`,
+        method: "GET",
+        query: query,
+        secure: true,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Company
      * @name CompanyControllerCreateCompany
      * @summary Create Company
      * @request POST:/company

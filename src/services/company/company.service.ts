@@ -1,4 +1,4 @@
-import { CompanyInfo } from 'services/api';
+import { Company, CompanyInfo } from 'services/api';
 import axios from '../base';
 
 export class CompanyService {
@@ -13,9 +13,11 @@ export class CompanyService {
     }
   }
 
-  async getCompaniesByName(): Promise<CompanyInfo> {
+  async getCompaniesByName(name: string): Promise<Company[]> {
     try {
-      const { data } = await axios.get<CompanyInfo>(`${this.url}/getInfo`);
+      const { data } = await axios.get<Company[]>(
+        `${this.url}/getCompaniesByName?name=${name}`
+      );
       return data;
     } catch (e) {
       throw new Error(e);

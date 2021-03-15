@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useCallback, useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Button, Input, InputBorderBottom } from 'atoms';
+import { Button, Input, InputBorderBottom, Search } from 'atoms';
 import { BillTable } from 'components';
 import { billService } from 'services/bill';
 import { Product, Props } from './bill.props';
@@ -9,7 +9,6 @@ import './container.scss';
 import { header } from './bill.constants';
 import { useFieldArray } from 'react-hook-form';
 import { IVA } from 'shared/constants/taxes';
-import { moneyDeformatter, moneyFormatter } from 'shared/utils/moneyFormatter';
 
 const Bill = ({
   isQuote,
@@ -64,7 +63,7 @@ const Bill = ({
 
   const calculateIvaAndTotal = () => {
     const { otherExpenses, products } = getValues();
-    console.log('type of otherExpense', typeof otherExpenses);
+
     let total = otherExpenses ? parseInt(otherExpenses, 10) : 0;
 
     (products as Product[])?.map((product) => {
@@ -132,8 +131,13 @@ const Bill = ({
                 <Controller
                   name="provider"
                   control={control}
-                  render={({ name, value }) => (
-                    <Input name={name} value={value} />
+                  render={({ name, value, onChange }) => (
+                    <Search
+                      name={name}
+                      value={value}
+                      onChange={onChange}
+                      setValueForm={setValue}
+                    />
                   )}
                 />
               </div>

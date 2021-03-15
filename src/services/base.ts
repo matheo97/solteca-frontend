@@ -6,7 +6,7 @@ const instance = axios.create({
   headers: {
     Authorization:
       'Bearer ' +
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGdtYWlsLmNvbSIsInN1YiI6ImIyMGVkYmUyLTRkYzctNDkxNS1hYmM5LTg3YjdhNGI5NDJhZSIsImlhdCI6MTYxNTM5OTE0MSwiZXhwIjoxNjE1NDAyNzQxfQ.YUaSZR4gVHHm-7WoVuVFyECPEWdyL34nMpq84-XgsAw',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGdtYWlsLmNvbSIsInN1YiI6ImIyMGVkYmUyLTRkYzctNDkxNS1hYmM5LTg3YjdhNGI5NDJhZSIsImlhdCI6MTYxNTU2NjYxNywiZXhwIjoxNjE1NTcwMjE3fQ.v76kdYPjweL_FuRYHZerC7v85WJGAiU2nH_pBwmm4SE',
   },
 });
 

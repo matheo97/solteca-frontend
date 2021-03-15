@@ -1,35 +1,17 @@
-import * as React from 'react'
-import { InputProps } from '../Input';
-import { ClassNameAndStyle } from '../utils/types';
+import { ChangeEvent } from 'react';
 
-export interface SelectProps<T> extends React.ComponentPropsWithoutRef<'input'>, ClassNameAndStyle {
-  label?: string
-  placeholder?: string
-  fullWidth?: boolean
-  error?: string
-
-  options?: SelectOption<T>[]
-
-  onSelectOption?: (option: SelectOption<T>) => void
-  onOptionFilter?: (value: string) => SelectOption<T>[]
-  format?(value: string): string
-
-  clearable?: boolean
-  searchable?: boolean
-
-  inputProps?: InputProps
-  optionProps?: SelectOptionProps<T>
+export interface Option {
+  label: string | null;
+  value: string | null;
 }
 
-export interface SelectOption<T> {
-  label: string
-  value: T
+export interface SearchProps {
+  name: string;
+  value: string;
+  onChange(e: ChangeEvent): void;
+  setValueForm(name: string, value: any): void;
 }
-
-export interface SelectOptionProps<T> extends ClassNameAndStyle {
-  onSelect?: (option: SelectOption<T>) => void
-  option?: SelectOption<T>
-
-  isSelected?: boolean
-  fullWidth?: boolean
+export interface SearchOptionProps {
+  setSelectedOption: any;
+  option: Option;
 }

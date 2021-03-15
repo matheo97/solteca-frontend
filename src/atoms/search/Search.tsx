@@ -1,24 +1,59 @@
 import React from 'react';
+import { Company } from 'services/api';
+import { companyService } from 'services/company';
+import { Option, SearchProps } from './Search.props';
 import Input from '../input/container';
-const Search = ({}: any) => {
-  const [value, setValue] = React.useState('');
-  /*   const [selectedOption, setSelectedOption] = React.useState<SelectOption<T>>(
-    null
-  );
-  const [showOptions, setShowOptions] = React.useState<boolean>(false);
-  const [options, setOptions] = React.useState<SelectOption<T>[]>(
-    _options || []
-  ); */
+import SearchOption from './SearchOption';
+import { useDebouncedValue } from './useDebouncedValue';
 
-  const filterOptions = (value: string) => {};
+const Search = (props: SearchProps) => {
+  const [value, setValue] = React.useState('');
+  const [options, setOptions] = React.useState<Option[]>([]);
+  let timer: any = null;
+
+  const filterOptions = async (name: string) => {
+    const companies = await companyService.getCompaniesByName(name);
+    setOptions(
+      companies.map((company: Company) => ({
+        label: company.name,
+        value: company.id,
+      }))
+    );
+  };
+
+  const updateOptionSelected = (option: Option) => {
+    props.setValueForm(`${props.name}Id`, option.value);
+    props.setValueForm(props.name, option.label);
+  };
 
   React.useEffect(() => {
-    filterOptions(value);
+    clearTimeout(timer);
+    timer = setTimeout(() => filterOptions(value), 500);
   }, [value]);
+
+  React.useEffect(() => {
+    return () => {
+      timer = null;
+    };
+  }, []);
 
   return (
     <div>
-      <Input onChange={(e) => setValue(e.target.value)} />
+      <Input
+        {...props}
+        onChange={(e) => {
+          props.onChange(e);
+          setValue(e.target.value);
+        }}
+      />
+      <div>
+        {options.map((option: Option) => (
+          <SearchOption
+            option={option}
+            setSelectedOption={updateOptionSelected}
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -4,7 +4,6 @@ import { InputBorderBottom } from 'atoms';
 import { Controller } from 'react-hook-form';
 
 import './container.scss';
-import { moneyFormatter } from 'shared/utils/moneyFormatter';
 
 interface Props {
   header: Array<{ name: string; width: string }>;
