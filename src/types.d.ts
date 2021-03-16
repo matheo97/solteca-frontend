@@ -1,6 +1,6 @@
-import { Empty } from "antd";
+import { CompanyInfo } from 'services/api';
 
-declare namespace Parking {
+declare namespace Solteca {
   export interface CustomWindow extends Window {
     analytics?: {
       page(url: string): void;
@@ -36,6 +36,26 @@ declare namespace Parking {
   export interface StoreWindow extends Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
   }
+  export interface Action {
+    type: string;
+    payload: FullState;
+  }
+  export interface FullState {
+    tickets: TicketsState;
+    company: CompanyState;
+  }
+  export interface EmptyState {
+    tickets: unknown;
+    company: unknown;
+  }
+  export interface AllReducersTypes {
+    tickets: TicketsState | undefined | Reducer<unknown, any>;
+    company: CompanyState | undefined | Reducer<unknown, any>;
+  }
+  export interface TicketsState {
+    activeTickets: Ticket[];
+    oldTickets: Ticket[];
+  }
   export interface Ticket {
     id: string;
     plate: string;
@@ -45,48 +65,8 @@ declare namespace Parking {
     getOut?: string;
     total?: number;
   }
-  export interface Price {
-    type: string;
-    base: number;
-    perHour: number;
-    discounts: {
-      gas?: number;
-      hybrid?: number;
-      electric?: number;
-    };
-  }
-  export interface Slot {
-    id: string;
-    occupied: boolean;
-  }
-  export interface MotorPark {
-    revenue: number;
-    slots: SlotObject;
-  }
-  export interface SlotObject {
-    [key: string]: Slot;
-  }
-  export interface FullState {
-    tickets: TicketsState;
-    prices: PricesState;
-  }
-  export interface EmptyState {
-    tickets: unknown;
-  }
-  export interface Action {
-    type: string;
-    payload: FullState;
-  }
-  export interface AllReducersTypes {
-    tickets: TicketsState | undefined | Reducer<unknown, any>;
-  }
-  export interface TicketsState {
-    activeTickets: Ticket[];
-    oldTickets: Ticket[];
-  }
-  export interface PricesState {
-    prices: Price[];
-  }
+
+  export interface CompanyState extends CompanyInfo {}
 }
 
-export default Parking;
+export default Solteca;

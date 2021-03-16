@@ -10,59 +10,50 @@ import './createCompany.scss';
 interface Props {
   onClose(): void;
   show: boolean;
-} 
+}
 
 export const CreateCompanyModal = (props: Props) => {
-
   const { register, handleSubmit, reset, watch } = useForm();
 
-  const onSubmit = useCallback((values) => {
-    console.log('values', values);
-    props.onClose();
-  }, [props]);
+  const onSubmit = useCallback(
+    (values) => {
+      console.log('values', values);
+      props.onClose();
+    },
+    [props]
+  );
 
   return (
-    <Modal
-      show={props.show}
-      onClose={props.onClose}
-    >
-      <div className='form'>
+    <Modal show={props.show} onClose={props.onClose}>
+      <div className="form">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Input label='NIT' name='nit' register={register} />
-          <Input label='NOMBRE CLIENTE' name='clientName' register={register} />
-          <Input label='DIRECCION' name='address' register={register} />
-          <div className='file'>
-            <InputFile 
-              name='fileTaxes' 
-              register={register} 
-              required={true} 
+          <Input label="NIT" name="nit" />
+          <Input label="NOMBRE CLIENTE" name="clientName" />
+          <Input label="DIRECCION" name="address" />
+          <div className="file">
+            <InputFile
+              name="fileTaxes"
+              register={register}
+              required={true}
               uploadIcon={uploadIcon}
             />
-            <p className='file-name'>
-              {
-                watch('fileTaxes') ? (
-                  watch('fileTaxes')[0]?.name
-                ) : (
-                  'Archivo aun no seleccionado'
-                )
-              }
+            <p className="file-name">
+              {watch('fileTaxes')
+                ? watch('fileTaxes')[0]?.name
+                : 'Archivo aun no seleccionado'}
             </p>
           </div>
-          <div className='actions'>
-            <Button 
-              copy='LIMPIAR'
-              type='terciary'
+          <div className="actions">
+            <Button
+              copy="LIMPIAR"
+              type="terciary"
               onClick={reset}
-              buttonType='button'
+              buttonType="button"
             />
-            <Button 
-              copy='CREAR'
-              type='primary'
-              buttonType='submit'
-            />
+            <Button copy="CREAR" type="primary" buttonType="submit" />
           </div>
         </form>
       </div>
-    </Modal> 
+    </Modal>
   );
-}
+};

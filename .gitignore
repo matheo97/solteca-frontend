@@ -5,4 +5,8 @@
 /build
 /dist
 
+# misc
+.env
+yarn.lock
 npm-debug.log*
+.env

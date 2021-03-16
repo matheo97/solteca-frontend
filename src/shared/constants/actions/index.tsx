@@ -1,2 +1,4 @@
 export const LOAD_ACTIVE_TICKETS = 'LOAD_ACTIVE_TICKETS';
 export const LOAD_OLD_TICKETS = 'LOAD_OLD_TICKETS';
+
+export const GET_INFO = 'GET_INFO';

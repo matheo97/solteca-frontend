@@ -5,13 +5,14 @@ import { options, header, rows } from './constants';
 
 import './container.scss';
 
-interface Props {} 
+interface Props {}
 
 interface State {
   inputSearch: string;
   checkPaid: boolean;
   checkQuote: boolean;
   currentPage: number;
+  selectValue: string;
   showBill: boolean;
   totalPages: number;
   type: 'purchase' | 'sells';
@@ -32,51 +33,49 @@ class Purchases extends Component<Props, State> {
       type: 'purchase',
       action: 'create',
       isQuote: false,
-    }
+      selectValue: '',
+    };
   }
 
   render() {
     return (
-      <div className='purchases-wrapper'>
-        <div className='header'>
-          <Input 
-            onChange={this.onChangeSearchBar} 
-            width={'inherit'} 
-            placeholder='Buscar'
+      <div className="purchases-wrapper">
+        <div className="header">
+          <Input
+            onChange={this.onChangeSearchBar}
+            width={'inherit'}
+            placeholder="Buscar"
           />
-          <div className='form-actions'>
-            <div className='form'>
-              <Checkbox 
-                name='no canceladas'
+          <div className="form-actions">
+            <div className="form">
+              <Checkbox
+                name="no canceladas"
                 checked={this.state.checkPaid}
                 onChange={this.onChangePaidCheckbox}
               />
-              <Checkbox 
-                name='cotizaciones'
+              <Checkbox
+                name="cotizaciones"
                 checked={this.state.checkQuote}
                 onChange={this.onChangeQuoteCheckbox}
               />
-              <Select 
-                defaultOption={'ultimos 6 meses'}
-                options={options}
-              />
+              <Select defaultOption={'ultimos 6 meses'} options={options} />
             </div>
-            <div className='actions'>
-              <Button 
-                copy='NUEVA COMPRA'
-                type='terciary'
+            <div className="actions">
+              <Button
+                copy="NUEVA COMPRA"
+                type="terciary"
                 onClick={() => this.showModal('purchase', 'create', false)}
               />
-              <Button 
-                copy='NUEVA COTIZACION'
-                type='primary'
+              <Button
+                copy="NUEVA COTIZACION"
+                type="primary"
                 onClick={() => this.showModal('purchase', 'create', true)}
               />
             </div>
           </div>
         </div>
-        <div className='content'>
-          <Table 
+        <div className="content">
+          <Table
             header={header}
             rows={rows}
             changeCurrentPage={this.changeCurrentPage}
@@ -85,57 +84,59 @@ class Purchases extends Component<Props, State> {
             totalPages={this.state.totalPages}
           />
         </div>
-        
+
         {/* All Bill and Quote actions */}
-        <Modal
-          show={this.state.showBill}
-        >
-          <Bill 
+        <Modal show={this.state.showBill}>
+          <Bill
             hideModal={this.hideModal}
             type={this.state.type}
             action={this.state.action}
             isQuote={this.state.isQuote}
             showModal={this.showModal}
           />
-        </Modal> 
+        </Modal>
       </div>
     );
   }
 
-  private readonly onChangePaidCheckbox = () => {
-    this.setState({ checkPaid: !this.state.checkPaid });
-  }
-
   private readonly showModal = (
-    type: 'purchase' | 'sells', 
+    type: 'purchase' | 'sells',
     action: 'create' | 'edit' | 'show',
-    isQuote: boolean,
-    ) => {
-    this.setState({ 
-      showBill: true, 
+    isQuote: boolean
+  ) => {
+    this.setState({
+      showBill: true,
       type,
       action,
       isQuote,
     });
-  }
+  };
 
   private readonly hideModal = () => {
     this.setState({ showBill: false });
-  }
+  };
 
   private readonly onChangeQuoteCheckbox = () => {
-    console.log('before Quote: ', this.state.checkQuote);
-    this.setState({ checkQuote: !this.state.checkQuote }, () => console.log('after Quote: ', this.state.checkQuote));
-  }
+    this.setState({ checkQuote: !this.state.checkQuote });
+  };
+
+  private readonly onChangePaidCheckbox = () => {
+    this.setState({ checkPaid: !this.state.checkPaid });
+  };
 
   private readonly onChangeSearchBar = () => {
     console.log('update state variable in dashboard');
-  }
+  };
+
+  private readonly onChangeSelect = (selectValue: string) => {
+    this.setState({ selectValue });
+    console.log('update state variable in dashboard');
+  };
 
   private readonly changeCurrentPage = (nextPage: number) => {
     this.setState({ currentPage: nextPage });
     console.log('change current page', nextPage);
-  }
+  };
 }
 
 export default Purchases;

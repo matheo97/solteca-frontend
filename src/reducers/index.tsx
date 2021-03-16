@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
 import tickets from './tickets';
-import Parking from 'types';
+import company from './company';
+import Solteca from 'types';
 
-const reducersMappingObject: Parking.AllReducersTypes = {
+const reducersMappingObject: Solteca.AllReducersTypes = {
   tickets,
+  company,
 };
 
 const allReducers = combineReducers(reducersMappingObject);
 
 export default (
-  state: Parking.FullState | Parking.EmptyState | undefined, 
-  action: Parking.Action,
-) => allReducers(state, action);
+  state: Solteca.FullState | Solteca.EmptyState | undefined,
+  action: Solteca.Action
+) => allReducers(state, action as never);
