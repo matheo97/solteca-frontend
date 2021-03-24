@@ -1,12 +1,10 @@
 {
-    "cSpell.words": [
-        "Solteca"
-    ],
-    "prettier.eslintIntegration": true,
-    "prettier.singleQuote": true,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+  "cSpell.words": ["Solteca"],
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "none",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

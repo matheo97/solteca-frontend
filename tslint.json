@@ -2,18 +2,18 @@
   "extends": ["tslint:all", "tslint-config-prettier", "tslint-plugin-prettier"],
   "rules": {
     "rootDir": "./src",
-    // Formatting rules
     "prettier": {
       "options": {
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "none",
+        "jsxSingleQuote": true,
+        "tsxSingleQuote": true,
         "printWidth": 100,
         "tabWidth": 2,
-        "trailingComma": "all",
-        "singleQuote": true,
-        "jsxSingleQuote": true
+        "endOfLine": "auto"
       }
     },
-
-    // Don't want these
     "cyclomatic-complexity": false,
     "increment-decrement": false,
     "newline-before-return": false,
@@ -22,8 +22,6 @@
     "no-unused-variable": false,
     "typedef": false,
     "unnecessary-else": false,
-
-    // TODO: Enable stricter options for these
     "comment-format": {
       "options": ["check-space"]
     },
@@ -31,8 +29,6 @@
     "only-arrow-functions": {
       "options": ["allow-declarations", "allow-named-functions"]
     },
-
-    // TODO: Enable these
     "completed-docs": false,
     "no-any": false,
     "no-magic-numbers": false,
@@ -50,7 +46,10 @@
     },
 
     "ban": {
-      "options": [["describe", "only"], ["it", "only"]]
+      "options": [
+        ["describe", "only"],
+        ["it", "only"]
+      ]
     },
     "interface-name": false,
     "max-classes-per-file": false,
@@ -63,12 +62,7 @@
     },
     "switch-default": false,
     "variable-name": {
-      "options": [
-        "ban-keywords",
-        "check-format",
-        "allow-leading-underscore",
-        "allow-pascal-case"
-      ]
+      "options": ["ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"]
     },
     "linebreak-style": false,
 
@@ -78,8 +72,8 @@
     "ordered-imports": false,
     "no-default-export": false,
     "no-default-import": false,
-    "no-import-side-effect": [true, {"ignore-module": "(\\.html|\\.css|\\.scss)$"}],
-    "no-submodule-imports": [true, "antd/lib/form", "antd/dist/antd.css"],
+    "no-import-side-effect": [true, { "ignore-module": "(\\.html|\\.css|\\.scss)$" }],
+    "no-submodule-imports": [true],
     "no-var-requires": false,
     "match-default-export-name": false,
     "switch-final-break": false,
