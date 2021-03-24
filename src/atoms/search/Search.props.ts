@@ -11,6 +11,7 @@ export interface SearchProps {
   onChange(e: ChangeEvent): void;
   setValueForm(name: string, value: any): void;
 }
+
 export interface SearchOptionProps {
   setSelectedOption: any;
   option: Option;

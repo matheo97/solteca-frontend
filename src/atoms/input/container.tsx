@@ -17,12 +17,13 @@ interface Props {
 const Input = (props: Props) => {
   return (
     <div className="input-personalized-wrapper">
-      {props.label ? <p className={'label'}>{props.label}</p> : null}
+      {props.label ? <p className="label">{props.label}</p> : null}
       <input
         {...props}
         className="input-personalized"
         style={{ width: props.width, height: props.height }}
         type={props.type ? props.type : 'text'}
+        autoComplete="off"
       />
     </div>
   );

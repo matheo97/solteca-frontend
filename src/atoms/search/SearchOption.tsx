@@ -3,7 +3,7 @@ import { SearchOptionProps } from './Search.props';
 
 const SearchOption = ({ setSelectedOption, option }: SearchOptionProps) => {
   return (
-    <div onClick={() => setSelectedOption(option)}>
+    <div className="option" onClick={() => setSelectedOption(option)}>
       <span>{option.label}</span>
     </div>
   );

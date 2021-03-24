@@ -47,7 +47,7 @@ const Bill = ({
     },
   });
 
-  const { fields, append } = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     control,
     name: 'products',
   });
@@ -117,6 +117,7 @@ const Bill = ({
                 isQuote={isQuote}
                 fields={fields}
                 append={append}
+                remove={remove}
                 control={control}
                 calculateTotalAndIva={calculateIvaAndTotal}
               />
@@ -222,11 +223,7 @@ const Bill = ({
                   }`}
                   type="primary"
                 />
-                <Button
-                  copy="CANCELAR"
-                  type="secondary"
-                  onClick={calculateIvaAndTotal}
-                />
+                <Button copy="CANCELAR" type="secondary" onClick={hideModal} />
               </div>
             )}
           </div>
