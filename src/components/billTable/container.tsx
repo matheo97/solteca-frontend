@@ -1,18 +1,11 @@
 import React, { ChangeEvent } from 'react';
-import addIcon from '../../images/bill-table/add-icon.svg';
+import { BillTableProps } from '../bill/bill.props';
 import { InputBorderBottom } from 'atoms';
 import { Controller } from 'react-hook-form';
+import addIcon from '../../images/bill-table/add-icon.svg';
+import deleteIcon from '../../images/general/delete.svg';
 
 import './container.scss';
-
-interface Props {
-  header: Array<{ name: string; width: string }>;
-  isQuote: boolean;
-  calculateTotalAndIva: any;
-  control: any;
-  fields: any;
-  append: any;
-}
 
 const BillTable = ({
   isQuote,
@@ -20,8 +13,9 @@ const BillTable = ({
   control,
   fields,
   append,
+  remove,
   calculateTotalAndIva,
-}: Props) => {
+}: BillTableProps) => {
   const createHeader = (header: Array<{ name: string; width: string }>) => (
     <thead className="bill-table-header-wrapper">
       <tr className="bill-table-header">
@@ -103,6 +97,14 @@ const BillTable = ({
                 />
               </td>
             ) : null}
+            <td className="row-element" key={5}>
+              <img
+                onClick={() => remove(index)}
+                className="delete-icon"
+                src={deleteIcon}
+                alt=""
+              />
+            </td>
           </tr>
         ))}
       </tbody>

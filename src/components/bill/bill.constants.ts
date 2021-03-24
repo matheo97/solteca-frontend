@@ -7,7 +7,8 @@ export const header = (isQuote: boolean, action: string) =>
       ]
     : [
         { name: 'CANTIDAD', width: '15%' },
-        { name: 'PRODUCTO', width: '25%' },
-        { name: 'DETALLE', width: '40%' },
+        { name: 'PRODUCTO', width: '20%' },
+        { name: 'DETALLE', width: '30%' },
         { name: 'VALOR TOTAL', width: '30%' },
+        { name: '', width: '5%' },
       ];

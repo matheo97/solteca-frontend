@@ -38,7 +38,6 @@
       height: 72.2rem;
       .dynamic-form {
         padding: 3rem;
-
       }
     }
     .provider-actions {
@@ -68,13 +67,18 @@
           font-weight: 400;
           position: absolute;
           top: 30.6rem;
-          left: 3.0rem;
+          left: 3rem;
           text-transform: uppercase;
         }
         .input-personalized-wrapper {
           margin-top: 1rem;
           .input-personalized {
             height: 3.7rem;
+            width: 28.6rem;
+          }
+        }
+        .search-input {
+          .options {
             width: 28.6rem;
           }
         }
@@ -196,8 +200,8 @@
           margin-bottom: 7rem;
           .button-personalized {
             font-size: 1.2rem;
-            margin-bottom: .5rem;
-            margin-top: .5rem;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
             height: 3.5rem;
             width: 13.8rem;
           }

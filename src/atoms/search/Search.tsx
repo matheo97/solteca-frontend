@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Company } from 'services/api';
 import { companyService } from 'services/company';
 import { Option, SearchProps } from './Search.props';
 import Input from '../input/container';
 import SearchOption from './SearchOption';
-import { useDebouncedValue } from './useDebouncedValue';
+import './Search.scss';
 
-const Search = (props: SearchProps) => {
-  const [value, setValue] = React.useState('');
+const Search = ({ name, value, onChange, setValueForm }: SearchProps) => {
+  const [inputValue, setInputValue] = React.useState('');
   const [options, setOptions] = React.useState<Option[]>([]);
-  let timer: any = null;
 
   const filterOptions = async (name: string) => {
     const companies = await companyService.getCompaniesByName(name);
@@ -22,38 +21,39 @@ const Search = (props: SearchProps) => {
   };
 
   const updateOptionSelected = (option: Option) => {
-    props.setValueForm(`${props.name}Id`, option.value);
-    props.setValueForm(props.name, option.label);
+    setValueForm(`${name}Id`, option.value);
+    setValueForm(name, option.label);
+    setOptions([]);
   };
 
-  React.useEffect(() => {
-    clearTimeout(timer);
-    timer = setTimeout(() => filterOptions(value), 500);
-  }, [value]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      filterOptions(inputValue);
+    }, 400);
 
-  React.useEffect(() => {
-    return () => {
-      timer = null;
-    };
-  }, []);
+    return () => clearTimeout(timer);
+  }, [inputValue]);
 
   return (
-    <div>
+    <div className="search-input">
       <Input
-        {...props}
+        name={name}
+        value={value}
         onChange={(e) => {
-          props.onChange(e);
-          setValue(e.target.value);
+          onChange(e);
+          setInputValue(e.target.value);
         }}
       />
-      <div>
-        {options.map((option: Option) => (
-          <SearchOption
-            option={option}
-            setSelectedOption={updateOptionSelected}
-          />
-        ))}
-      </div>
+      {options.length > 0 && (
+        <div className="options">
+          {options.map((option: Option) => (
+            <SearchOption
+              option={option}
+              setSelectedOption={updateOptionSelected}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

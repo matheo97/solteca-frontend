@@ -1,0 +1,30 @@
+@import '../../scss/utilities/variables';
+
+.search-input {
+  position: relative;
+  width: auto;
+  .options {
+    position: absolute;
+    top: 4.5rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0.8rem 3.6rem -1.3rem #5374e0;
+    height: 12.3rem;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    width: 33.1rem;
+    overflow-y: scroll;
+    .option {
+      margin-top: 0.2rem;
+      span {
+        cursor: pointer;
+        color: $gray;
+        font-size: 1.6rem;
+        font-weight: 500;
+        &:hover {
+          color: $grayHover;
+        }
+      }
+    }
+  }
+}
